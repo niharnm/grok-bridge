@@ -1,0 +1,53 @@
+{
+  "name": "grok-bridge",
+  "version": "0.1.0-alpha.1",
+  "description": "Task handoffs between Grok Bot, Codex, Claude Code, Cursor, and Antigravity. One CLI.",
+  "type": "module",
+  "bin": {
+    "grok-bridge": "bin/grok-bridge.js"
+  },
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "test": "node --test",
+    "check": "node scripts/check.js",
+    "prepack": "npm run check && npm test"
+  },
+  "files": [
+    "bin",
+    "src",
+    "plugins",
+    "integrations",
+    ".agents",
+    ".claude-plugin",
+    ".cursor-plugin",
+    "docs",
+    "README.md",
+    "LICENSE",
+    "SECURITY.md",
+    "CHANGELOG.md",
+    "CONTRIBUTING.md"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/niharnm/grok-bridge.git"
+  },
+  "homepage": "https://github.com/niharnm/grok-bridge#readme",
+  "bugs": {
+    "url": "https://github.com/niharnm/grok-bridge/issues"
+  },
+  "author": "Nihar",
+  "license": "MIT",
+  "keywords": [
+    "grok-bot",
+    "grokbot",
+    "codex",
+    "claude-code",
+    "plugins",
+    "handoff",
+    "cli",
+    "cursor",
+    "antigravity"
+  ]
+}

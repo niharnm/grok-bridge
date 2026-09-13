@@ -1,0 +1,30 @@
+{
+  "name": "grok-bridge",
+  "owner": {
+    "name": "Nihar",
+    "url": "https://github.com/niharnm"
+  },
+  "metadata": {
+    "description": "Shared skills for task handoffs across Grok Bot, Codex, Claude Code, Cursor, and Antigravity.",
+    "version": "0.1.0-alpha.1"
+  },
+  "plugins": [
+    {
+      "name": "grok-bridge",
+      "description": "Send scoped tasks to Grok Bot and run local coding CLIs.",
+      "version": "0.1.0-alpha.1",
+      "author": {
+        "name": "Nihar"
+      },
+      "source": "./plugins/grok-bridge",
+      "category": "productivity",
+      "keywords": [
+        "grok-bot",
+        "codex",
+        "claude-code",
+        "cursor",
+        "antigravity"
+      ]
+    }
+  ]
+}

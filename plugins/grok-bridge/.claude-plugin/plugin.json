@@ -1,0 +1,20 @@
+{
+  "name": "grok-bridge",
+  "version": "0.1.0-alpha.1",
+  "description": "Bounded task handoffs between Grok Bot, Codex, Claude Code, Cursor, and Antigravity through one CLI.",
+  "author": {
+    "name": "Nihar",
+    "url": "https://github.com/niharnm"
+  },
+  "homepage": "https://github.com/niharnm/grok-bridge",
+  "repository": "https://github.com/niharnm/grok-bridge",
+  "license": "MIT",
+  "keywords": [
+    "grok-bot",
+    "codex",
+    "claude-code",
+    "cursor",
+    "antigravity",
+    "delegation"
+  ]
+}

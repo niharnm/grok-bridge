@@ -1,0 +1,37 @@
+{
+  "name": "grok-bridge",
+  "version": "0.1.0-alpha.1",
+  "description": "Bounded task handoffs between Grok Bot, Codex, Claude Code, Cursor, and Antigravity through one CLI.",
+  "author": {
+    "name": "Nihar",
+    "url": "https://github.com/niharnm"
+  },
+  "homepage": "https://github.com/niharnm/grok-bridge",
+  "repository": "https://github.com/niharnm/grok-bridge",
+  "license": "MIT",
+  "keywords": [
+    "grok-bot",
+    "codex",
+    "claude-code",
+    "cursor",
+    "antigravity",
+    "delegation"
+  ],
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "Grok Bridge",
+    "shortDescription": "Grok Bot handoffs for your coding tools.",
+    "longDescription": "Send a scoped task to Grok Bot or run Codex, Claude Code, Cursor, and Antigravity through one separately installed CLI. Grok Bot transport is experimental and requires the community gbot client.",
+    "developerName": "Nihar",
+    "category": "Productivity",
+    "capabilities": [
+      "Interactive",
+      "Write"
+    ],
+    "websiteURL": "https://github.com/niharnm/grok-bridge",
+    "defaultPrompt": [
+      "Send a scoped task to my Grok Bot.",
+      "Ask Claude Code to review this change."
+    ]
+  }
+}
