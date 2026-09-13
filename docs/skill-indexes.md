@@ -2,15 +2,15 @@
 
 The canonical source is [`skills/grok-bridge/SKILL.md`](../skills/grok-bridge/SKILL.md), named `grok-bridge` in the `niharnm/grok-bridge` repository. It teaches the existing CLI; it contains no second runtime. Use the fully qualified repository name because other unrelated projects use the same skill name.
 
-Install into the current project with the [Skills CLI](https://github.com/vercel-labs/skills), using Node.js 22.20.0 or newer for version 1.5.26. These commands select the shared skill from the `alpha` branch, which can change. The older runtime tag does not include this new root entrypoint.
+Install into the current project with the [Skills CLI](https://github.com/vercel-labs/skills), using Node.js 22.20.0 or newer for version 1.5.26. These commands select the shared skill from the `main` branch, which can change. The older runtime tag does not include this new root entrypoint.
 
 ```sh
-npx skills@1.5.26 add https://github.com/niharnm/grok-bridge/tree/alpha/skills/grok-bridge --agent codex
+npx skills@1.5.26 add https://github.com/niharnm/grok-bridge/tree/main/skills/grok-bridge --agent codex
 ```
 
 Use `claude-code`, `cursor`, `antigravity`, or `antigravity-cli` instead of `codex` for the relevant host. The installer places Codex, Cursor, and Antigravity project skills under `.agents/skills`, and Claude Code skills under `.claude/skills`. Installation is a file operation, not proof of native skill loading. Antigravity has differing CLI and IDE discovery documentation; check the [host setup guide](antigravity-setup.md) before adding a second copy. The Skills CLI's `grok` target is **Grok Build**, not Grok Bot. Grok Bot uses its own [saved-skill workflow](grok-bot-setup.md). [Installer agent definitions](https://github.com/vercel-labs/skills/blob/d667282815248da03a08a18272b5d2eef9caf77c/src/agents.ts).
 
-The repository shorthand uses its default branch, currently `alpha`:
+The repository shorthand uses its default branch, currently `main`:
 
 ```sh
 npx skills@1.5.26 add niharnm/grok-bridge --list
@@ -53,7 +53,7 @@ SkillsMP already displays nested source paths in search results, so a root `SKIL
 
 ### Smithery
 
-The documented submission is `PUT https://api.smithery.ai/skills/{namespace}/{slug}` with an API key and JSON containing `gitUrl`. The proposed identifier is `niharnm/grok-bridge`, subject to ownership of that namespace. The proposed source is `https://github.com/niharnm/grok-bridge/tree/alpha/skills/grok-bridge`. Public registry responses show existing skills with nested GitHub tree URLs. No credentials or account setup are supplied by this repository. [Registration API](https://smithery.ai/docs/api-reference/skills/create-or-update-a-skill), [namespaces](https://smithery.ai/docs/concepts/namespaces).
+The documented submission is `PUT https://api.smithery.ai/skills/{namespace}/{slug}` with an API key and JSON containing `gitUrl`. The proposed identifier is `niharnm/grok-bridge`, subject to ownership of that namespace. The proposed source is `https://github.com/niharnm/grok-bridge/tree/main/skills/grok-bridge`. Public registry responses show existing skills with nested GitHub tree URLs. No credentials or account setup are supplied by this repository. [Registration API](https://smithery.ai/docs/api-reference/skills/create-or-update-a-skill), [namespaces](https://smithery.ai/docs/concepts/namespaces).
 
 After a successful registration, verify the returned metadata and listing status before advertising installation. The documented consumer command would then be:
 
