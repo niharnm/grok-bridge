@@ -1,8 +1,12 @@
 # Launch drafts and distribution notes
 
-Prepared for Nihar on 2026-09-13 for `0.1.0-alpha.1`. Social posts and directory submissions below are unpublished drafts. The GitHub repository is public, with the alpha implementation in [review PR #1](https://github.com/niharnm/grok-bridge/pull/1). Verify the public tag and installation instructions before using either draft.
+Prepared for Nihar on 2026-09-13 for `0.1.0-alpha.1`. The [alpha release](https://github.com/niharnm/grok-bridge/releases/tag/v0.1.0-alpha.1) is published and its tagged GitHub installation passed. The implementation remains in [review PR #1](https://github.com/niharnm/grok-bridge/pull/1), without a merge. Social posts below remain unpublished drafts.
 
 Project: [niharnm/grok-bridge](https://github.com/niharnm/grok-bridge).
+
+## Distribution record
+
+A focused [awesome-grok-bot tool submission](https://github.com/majiayu000/awesome-grok-bot/pull/7) adds one factual alpha entry to each language README. Upstream lint passed with `OK 830 entries`. The PR discloses the private gateway, verified subset of routes, remaining authentication/permission gaps, and Cursor work-mode behavior for maintainer review. Submission is pending; it is not an accepted listing or evidence of adoption. No social announcement, direct message, or vendor marketplace submission has been posted.
 
 ## Positioning
 
