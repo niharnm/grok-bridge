@@ -1,0 +1,5 @@
+*.md
+.env*
+.vercel/
+.nojekyll
+social-card.svg

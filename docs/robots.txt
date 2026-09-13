@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://grok-bridge-henna.vercel.app/sitemap.xml
