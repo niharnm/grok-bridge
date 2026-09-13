@@ -2,6 +2,19 @@
 
 The canonical source is [`skills/grok-bridge/SKILL.md`](../skills/grok-bridge/SKILL.md), named `grok-bridge` in the `niharnm/grok-bridge` repository. It teaches the existing CLI; it contains no second runtime. Use the fully qualified repository name because other unrelated projects use the same skill name.
 
+The [Grok Bridge pack on skills.sh](https://skills.sh/p/o02Pja39oijRhbnx) is an
+unlisted share link that anyone can view and install without authentication:
+
+```sh
+npx skills@1.5.26 add https://skills.sh/p/o02Pja39oijRhbnx --agent codex
+```
+
+It contains the shared skill uploaded from commit `6c2ce49` on September 13,
+2026. It is a snapshot; update the pack when the source skill changes. One
+fresh installation matched the source bytes. Its initial download count is
+that verification test, not independent adoption or leaderboard inclusion.
+The pinned CLI runtime below remains a separate installation.
+
 Install into the current project with the [Skills CLI](https://github.com/vercel-labs/skills), using Node.js 22.20.0 or newer for version 1.5.26. These commands select the shared skill from the `main` branch, which can change. The older runtime tag does not include this new root entrypoint.
 
 ```sh

@@ -6,7 +6,7 @@
 [![MIT license](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
 [![Node.js 22+](https://img.shields.io/badge/node-%E2%89%A522-43853d.svg)](package.json)
 
-[Website](https://niharnm.github.io/grok-bridge/) · [Shared skill install](docs/skill-indexes.md) · [Release](https://github.com/niharnm/grok-bridge/releases/tag/v0.1.0-alpha.1)
+[Website](https://niharnm.github.io/grok-bridge/) · [Shared skill install](docs/skill-indexes.md) · [skills.sh pack](https://skills.sh/p/o02Pja39oijRhbnx) · [Release](https://github.com/niharnm/grok-bridge/releases/tag/v0.1.0-alpha.1)
 
 Hand a bounded task to another tool, get a result, and continue where you started. Grok Bridge packages a small shared runner, Codex, Claude Code, and Cursor plugins plus Antigravity skills, and a Grok Bot setup workflow. No runtime npm dependencies, separate bridge account, or custom remote-command server.
 

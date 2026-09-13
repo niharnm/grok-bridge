@@ -1,38 +1,41 @@
 # GitHub Pages
 
-The migration target is `https://niharnm.github.io/grok-bridge/`. The source is
-`docs/`, deployed by `.github/workflows/pages.yml` after changes reach `main`.
-The workflow stages an explicit list of public files, excluding repository
-documentation, environment files, and local deployment metadata.
+The website is live at [niharnm.github.io/grok-bridge](https://niharnm.github.io/grok-bridge/).
+Its source is `docs/`. The GitHub Actions workflow in
+`.github/workflows/pages.yml` publishes changes from `main` and stages ten
+named public files, excluding repository documentation, environment files,
+and local deployment metadata.
 
-## Activation
+## Completed migration
 
-Migration is prepared, but the public site still uses its existing host until
-the account-domain routing is resolved and Pages is verified.
+[PR #2](https://github.com/niharnm/grok-bridge/pull/2) merged as `6c2ce49` on
+September 13, 2026. The [Pages deployment](https://github.com/niharnm/grok-bridge/actions/runs/34786756151)
+succeeded with HTTPS enforced. Eighteen public HTTP checks passed, including
+source-byte comparisons, the nested custom 404, canonical and sitemap URLs,
+HTTP and trailing-slash redirects, and exclusion of environment/configuration
+files and source maps.
 
-The account's `niharnm.github.io` repository currently sets `niharm.me` as its
-Pages custom domain. GitHub applies that domain to project sites, including
-Grok Bridge. The resulting `/grok-bridge/` route currently returns 404 on the
-portfolio's host. Setting an empty custom domain on this project does not
-override that inheritance.
+The account Pages repository previously assigned `niharm.me` to all project
+sites through domain inheritance. With explicit approval, that obsolete
+setting was removed; GitHub also removed its source `CNAME` in
+[commit eb00264](https://github.com/niharnm/niharnm.github.io/commit/eb00264d5191bed5003d1a50323375e7064e81c3).
+The source branch remains `develop`. No portfolio DNS or hosting settings
+changed. Both portfolio URLs retained identical HTML, HTTP status, Vercel
+hosting and redirect behavior in the before/after comparison.
 
-To use the target URL, the maintainer must remove the obsolete custom-domain
-setting and source `CNAME` from the account's Pages repository. This changes
-the root GitHub URL and inherited project redirects, so it requires separate
-approval. Portfolio DNS and Vercel hosting do not need to change. Alternatively,
-assign this project its own custom subdomain and point that subdomain to
-GitHub Pages, then update the canonical URLs and site path accordingly.
+## Publishing changes
 
-After resolving routing, select **GitHub Actions** in this repository's Pages
-settings. Merge the migration into `main` and run **GitHub Pages**. Verify the
-home page, assets, custom 404, and sitemap over public HTTPS before changing
-the repository homepage or retiring the previous deployment.
+Merge website changes into `main`; the Pages workflow deploys them
+automatically. Its manual **Run workflow** action is also available on `main`.
+Verify the public home, assets, a nonexistent nested route, and sitemap after
+each relevant change. Keep paths under `/grok-bridge/`; the 404 page uses
+absolute project paths so recovery works from any missing nested URL.
 
 The previous host's Google Search Console and IndexNow submissions do not
-establish ownership or indexing of the new URL. Verify the new URL-prefix
-property and submit its sitemap after deployment. A project-level
-`/grok-bridge/robots.txt` is not a domain-root crawler policy; use the sitemap
-submission and page metadata for discovery.
+establish ownership or indexing of this URL. New-property setup and the
+previous-host redirect are tracked in the [distribution record](launch.md#distribution-record).
+A project-level `/grok-bridge/robots.txt` is not a domain-root crawler policy;
+use the sitemap submission and page metadata for discovery.
 
 See GitHub's [domain inheritance rules](https://docs.github.com/en/pages/configuring-a-custom-domain-for-your-github-pages-site/about-custom-domains-and-github-pages)
 and [Actions publishing documentation](https://docs.github.com/en/pages/getting-started-with-github-pages/using-custom-workflows-with-github-pages).

@@ -68,10 +68,22 @@ The requested full acceptance is incomplete. This release remains an experimenta
 
 ## Discovery publication checks
 
-The September 13 distribution update adds the [public website](https://grok-bridge-henna.vercel.app/) and a canonical `skills/grok-bridge` entrypoint. The runtime remains the tagged alpha above. `npm test` passed 90 tests: the 87 runtime tests plus 3 website clipboard tests. The shared skill passed its official validator and task-local installation checks for Codex, Claude Code, Cursor, Antigravity, and Antigravity CLI. A separate installation from the published GitHub source passed a byte comparison. File installation does not prove host discovery.
+The September 13 distribution update added a canonical `skills/grok-bridge` entrypoint. The runtime remains the tagged alpha above. `npm test` passed 90 tests: the 87 runtime tests plus 3 website clipboard tests. The shared skill passed its official validator and task-local installation checks for Codex, Claude Code, Cursor, Antigravity, and Antigravity CLI. A separate installation from the published GitHub source passed a byte comparison. File installation does not prove host discovery.
 
-Public HTTPS checks matched the home page, CSS, JavaScript, favicon, social image, robots file, sitemap, and custom 404 against the local source. Browser checks covered desktop/mobile overflow, copy feedback, named navigation, skip-link focus, and 404 recovery. The observed page requested only its own assets and had no cookies or local/session storage entries. The share image is 1200x630 and 52KB; no third-party social-platform rendering is claimed.
+The updated package manifest contained 29 intended files including the canonical skill, with deployment metadata, environment files, and website assets excluded. The existing 27-file alpha release archive was not replaced. [Distribution status](launch.md#distribution-record) separates public assets, directory submissions, unverified indexing and account-dependent publishing.
 
-The updated package manifest contains 29 intended files including the canonical skill, with deployment metadata, environment files, and website assets excluded. The existing 27-file alpha release archive was not replaced. [Distribution status](launch.md#distribution-record) distinguishes public assets, submitted directory PRs, IndexNow's 202 response, unverified indexing, and account-dependent publishing.
+### GitHub Pages migration
 
-Google Search Console ownership was verified using its exact public HTML tag. The sitemap detail page reported successful processing and one discovered page. URL Inspection reported the homepage as discovered but currently not indexed. A single manual indexing request was rejected by Google's daily quota. This establishes ownership and sitemap processing, without claiming a search listing.
+[PR #2](https://github.com/niharnm/grok-bridge/pull/2) merged as `6c2ce49`. The [Pages deployment](https://github.com/niharnm/grok-bridge/actions/runs/34786756151) succeeded, and [the website](https://niharnm.github.io/grok-bridge/) now serves through GitHub Pages with HTTPS enforced. All 18 HTTP checks passed: delivered page/assets matched source, a nested missing route returned the custom 404, canonical/sitemap/social-image URLs were correct, HTTP and omitted-slash URLs reached the canonical HTTPS URL, and tested environment/configuration/map paths returned 404.
+
+Live browser checks confirmed skip-link focus on `main`, copy success feedback, and no horizontal overflow at 1280 or 390 CSS pixels. The console had no warnings or errors. Observed requests were limited to the site's own document, CSS, JavaScript and favicon; cookie, local-storage and session-storage counts were zero. The unchanged share image is 1200x630 and 52,071 bytes. No third-party social-platform rendering is claimed.
+
+The approved account Pages domain cleanup removed the inherited portfolio redirect. Portfolio DNS and hosting were untouched; both portfolio URLs retained identical HTML hashes, status, host and redirect behavior. See the [deployment guide](github-pages.md) for the configuration and publishing workflow.
+
+Google Search Console ownership and sitemap processing were previously verified for the old Vercel URL. That homepage was discovered but not indexed, and its manual indexing request hit Google's daily quota. Those observations do not establish ownership or indexing of the new Pages URL; current setup is tracked in the distribution record.
+
+### Public skill pack
+
+The [Grok Bridge pack](https://skills.sh/p/o02Pja39oijRhbnx) is an unlisted, shareable skills.sh pack containing one uploaded public `SKILL.md`. A cookie-free HTTP request rendered the pack, and one project-scoped Codex installation using Skills CLI 1.5.26 succeeded without authentication, with `DISABLE_TELEMETRY=1`.
+
+The installed file exactly matched the repository source, SHA256 `3943af265d9ad860b8c9a95686c3c700fb9ac347c5812a4d64c4c452c88b6392`. The test copy was removed after verification; no global skill was installed. The pack displayed one download after this test, which is verification activity, not independent adoption. This pack does not establish public leaderboard inclusion, marketplace approval, or native host loading.
