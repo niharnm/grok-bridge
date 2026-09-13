@@ -23,7 +23,7 @@
     ".agents",
     ".claude-plugin",
     ".cursor-plugin",
-    "docs",
+    "docs/*.md",
     "README.md",
     "LICENSE",
     "SECURITY.md",
