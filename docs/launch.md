@@ -15,6 +15,7 @@ Checked September 13, 2026. The [public website](https://grok-bridge-henna.verce
 | [Awesome Antigravity Skills #2](https://github.com/LichAmnesia/awesome-antigravity-skills/pull/2) | Submitted; open and unmerged. One README entry, local link check passed 60/60. Upstream workflow awaits maintainer authorization. |
 | [Awesome Cursor Skills #78](https://github.com/spencerpauly/awesome-cursor-skills/pull/78) | Submitted; open and unmerged. One Workflow entry, with Cursor authentication and host-loading gaps disclosed. |
 | IndexNow | Submitted the public website URL once after checking its hosted ownership file. HTTP 202 means key verification is pending. It does not establish crawling, search inclusion, ranking, or Google indexing. |
+| Google Search Console | Ownership verified by HTML tag. Sitemap processed successfully with one page discovered. The homepage is discovered but currently not indexed; the separate manual indexing request was rejected because the account reached its daily quota. |
 | npm registry | Not published. The current terminal returned `ENEEDAUTH`; maintainer login is required. Tagged GitHub installation remains available. |
 | Claude, Cursor, Smithery | Publishing forms reached their actual sign-in screens. No application or skill registration was submitted. Native Claude and Cursor acceptance also remains incomplete. |
 | skills.sh and SkillsMP | Canonical skill published and installable; catalog inclusion is not verified. See [index requirements](skill-indexes.md). |
