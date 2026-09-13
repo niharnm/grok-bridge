@@ -6,7 +6,22 @@ Project: [niharnm/grok-bridge](https://github.com/niharnm/grok-bridge).
 
 ## Distribution record
 
-A focused [awesome-grok-bot tool submission](https://github.com/majiayu000/awesome-grok-bot/pull/7) adds one factual alpha entry to each language README. Upstream lint passed with `OK 830 entries`. The PR discloses the private gateway, verified subset of routes, remaining authentication/permission gaps, and Cursor work-mode behavior for maintainer review. Submission is pending; it is not an accepted listing or evidence of adoption. No social announcement, direct message, or vendor marketplace submission has been posted.
+Checked September 13, 2026. The [public website](https://grok-bridge-henna.vercel.app/) and [shared Agent Skill](../skills/grok-bridge/SKILL.md) are published. Website responses, the custom 404, assets, sitemap, copy feedback, and keyboard navigation were checked. A fresh project installed the shared skill from the public GitHub source and matched its bytes. The repository includes the `claude-skills` and `claude-code-skill` topics used by SkillsMP discovery.
+
+| Destination | Actual result |
+| --- | --- |
+| [Awesome Grok Bot #7](https://github.com/majiayu000/awesome-grok-bot/pull/7) | Submitted earlier; open and unmerged. English and Chinese entries, upstream lint passed with `OK 830 entries`. |
+| [Awesome Codex Plugins #18](https://github.com/noahfraiture/awesome-codex-plugins/pull/18) | Submitted; open and unmerged. One README entry with installation prerequisites. |
+| [Awesome Antigravity Skills #2](https://github.com/LichAmnesia/awesome-antigravity-skills/pull/2) | Submitted; open and unmerged. One README entry, local link check passed 60/60. Upstream workflow awaits maintainer authorization. |
+| [Awesome Cursor Skills #78](https://github.com/spencerpauly/awesome-cursor-skills/pull/78) | Submitted; open and unmerged. One Workflow entry, with Cursor authentication and host-loading gaps disclosed. |
+| IndexNow | Submitted the public website URL once after checking its hosted ownership file. HTTP 202 means key verification is pending. It does not establish crawling, search inclusion, ranking, or Google indexing. |
+| npm registry | Not published. The current terminal returned `ENEEDAUTH`; maintainer login is required. Tagged GitHub installation remains available. |
+| Claude, Cursor, Smithery | Publishing forms reached their actual sign-in screens. No application or skill registration was submitted. Native Claude and Cursor acceptance also remains incomplete. |
+| skills.sh and SkillsMP | Canonical skill published and installable; catalog inclusion is not verified. See [index requirements](skill-indexes.md). |
+
+Directory PRs are proposals for maintainer review, not accepted listings or evidence of adoption. No social announcement or direct message has been posted. The [IndexNow protocol](https://www.indexnow.org/documentation) permits the same-host `indexnow.txt` verification file and explicit `keyLocation`; its [FAQ](https://www.indexnow.org/faq) explains ownership and submission limits.
+
+The website uses a separate Vercel project. Its source is in `docs/`; `docs/vercel.json` configures static hosting, and `.vercelignore` excludes documentation, environment files, and deployment metadata. After linking the intended Vercel project, publish changes with `vercel deploy --cwd docs --prod` and verify the public production URL. GitHub Pages is disabled for this repository because an inherited account-domain redirect did not serve the project. This did not change the portfolio's hosting or domain settings.
 
 ## Positioning
 
@@ -36,11 +51,11 @@ The repository includes pinned installation instructions, tests, and current lim
 
 ## Recommended destinations
 
-These are three relevant destinations to revisit after live acceptance. Each destination has its own requirements. A directory entry can describe the usable alpha without claiming all eight directions passed.
+These destinations have separate eligibility and review processes. Each destination has its own requirements. A directory entry can describe the usable alpha without claiming all eight directions passed.
 
 | Destination | Fit and submission rules | Recommendation |
 | --- | --- | --- |
-| [majiayu000/awesome-grok-bot](https://github.com/majiayu000/awesome-grok-bot) | Its [contribution guide](https://github.com/majiayu000/awesome-grok-bot/blob/main/CONTRIBUTING.md#add-a-field-case-or-a-github-tool) accepts usable GitHub bridges. Add the same repository URL and one factual sentence to the English and Chinese READMEs under Skills and tools. Do not add a tool to `catalog.json` or invent a Bot share URL. Use PR title `Add tool Grok Bridge`. | Best community fit. After the public install passes, propose one focused alpha entry and disclose the live gaps and Cursor work permission behavior for maintainer review. The repository was unarchived and updated on 2026-09-13 when checked. |
+| [majiayu000/awesome-grok-bot](https://github.com/majiayu000/awesome-grok-bot) | Its [contribution guide](https://github.com/majiayu000/awesome-grok-bot/blob/main/CONTRIBUTING.md#add-a-field-case-or-a-github-tool) accepts usable GitHub bridges. Add the same repository URL and one factual sentence to the English and Chinese READMEs under Skills and tools. Do not add a tool to `catalog.json` or invent a Bot share URL. Use PR title `Add tool Grok Bridge`. | Submitted as PR #7 above. Live gaps and Cursor work permissions are disclosed for maintainer review. |
 | [Claude community marketplace](https://github.com/anthropics/claude-plugins-community) | Submit through the [Console form](https://platform.claude.com/plugins/submit). Run `claude plugin validate` against the plugin directory first. The [current Claude documentation](https://code.claude.com/docs/en/plugins#submit-your-plugin-to-the-community-marketplace) describes validation and safety screening. The [catalog is a mirror](https://github.com/anthropics/claude-plugins-community#submitting-a-plugin); direct PRs are closed automatically. | Wait for authenticated Claude tests and independent installation. Community approval does not place the project in `claude-plugins-official`, which is curated separately. Individual authors can use the Console form; the Claude.ai form requires Team or Enterprise directory access. |
 | [OpenAI Plugins Directory](https://platform.openai.com/plugins) | The [third-party integration rules](https://developers.openai.com/plugins/app-guidelines#third-party-content-and-integrations) exclude plugins primarily built as unofficial third-party connectors or pass-through intermediaries. Skills-only packaging support does not establish eligibility. | Not submitted. The bridge depends on an unofficial Grok gateway, so the current product appears to fall under that restriction. Revisit only if the integration or published policy changes. |
 

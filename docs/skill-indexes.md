@@ -77,3 +77,5 @@ DISABLE_TELEMETRY=1 npx skills@1.5.26 add /absolute/grok-bridge --skill grok-bri
 ```
 
 Run those commands from a disposable project directory. Check that its `.agents/skills/grok-bridge/SKILL.md` matches the source. This establishes CLI discovery and file installation only. Separately verify public-source installation after publishing, catalog visibility after indexing, and actual loading in an authenticated destination session.
+
+Public-source acceptance on September 13, 2026: the pinned Skills CLI installed `https://github.com/niharnm/grok-bridge/tree/alpha/skills/grok-bridge` into a fresh project for Codex. The copied file matched the published source. Both documented SkillsMP repository topics are now present. Validation used `DISABLE_TELEMETRY=1`; no repeated installations were generated to influence a leaderboard. Catalog inclusion remains unverified.

@@ -65,3 +65,11 @@ All four CI jobs passed on Node.js 22/24 across macOS/Linux for [implementation 
 5. Verify another clean machine and Windows before claiming those environments work.
 
 The requested full acceptance is incomplete. This release remains an experimental alpha, with no claim of marketplace approval or independent adoption.
+
+## Discovery publication checks
+
+The September 13 distribution update adds the [public website](https://grok-bridge-henna.vercel.app/) and a canonical `skills/grok-bridge` entrypoint. The runtime remains the tagged alpha above. `npm test` passed 90 tests: the 87 runtime tests plus 3 website clipboard tests. The shared skill passed its official validator and task-local installation checks for Codex, Claude Code, Cursor, Antigravity, and Antigravity CLI. A separate installation from the published GitHub source passed a byte comparison. File installation does not prove host discovery.
+
+Public HTTPS checks matched the home page, CSS, JavaScript, favicon, social image, robots file, sitemap, and custom 404 against the local source. Browser checks covered desktop/mobile overflow, copy feedback, named navigation, skip-link focus, and 404 recovery. The observed page requested only its own assets and had no cookies or local/session storage entries. The share image is 1200x630 and 52KB; no third-party social-platform rendering is claimed.
+
+The updated package manifest contains 29 intended files including the canonical skill, with deployment metadata, environment files, and website assets excluded. The existing 27-file alpha release archive was not replaced. [Distribution status](launch.md#distribution-record) distinguishes public assets, submitted directory PRs, IndexNow's 202 response, unverified indexing, and account-dependent publishing.
