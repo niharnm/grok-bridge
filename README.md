@@ -6,6 +6,8 @@
 [![MIT license](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
 [![Node.js 22+](https://img.shields.io/badge/node-%E2%89%A522-43853d.svg)](package.json)
 
+[Website](https://niharnm.github.io/grok-bridge/) · [Shared skill install](docs/skill-indexes.md) · [Release](https://github.com/niharnm/grok-bridge/releases/tag/v0.1.0-alpha.1)
+
 Hand a bounded task to another tool, get a result, and continue where you started. Grok Bridge packages a small shared runner, Codex, Claude Code, and Cursor plugins plus Antigravity skills, and a Grok Bot setup workflow. No runtime npm dependencies, separate bridge account, or custom remote-command server.
 
 **Experimental alpha.** Three directions have live evidence: Codex to Grok Bot, Grok Bot to Codex, and Grok Bot to Antigravity. Native Codex and Antigravity reads and edits also passed. Claude provider access, Cursor login, Antigravity source-host command permissions, and actual host skill discovery still limit acceptance. See the [acceptance record](docs/acceptance.md).
@@ -61,6 +63,8 @@ grok-bridge run --to antigravity --cwd /absolute/repo --mode review --task-file 
 `review` is the default. `work` explicitly permits edits within the task's scope. Supply `--model` only to select a particular destination model; otherwise its configured default applies. To continue a returned native session, use `--session SESSION_UUID` with the same target and repository. Nothing silently selects the most recent session.
 
 ## Install the host plugins
+
+For a single shared Agent Skill across Codex, Claude Code, Cursor, and Antigravity, use the [Skills CLI installation](docs/skill-indexes.md). The canonical `skills/grok-bridge` entrypoint teaches the same CLI. Choose the shared skill or the host plugin for a given project.
 
 For **Claude Code**, run in its interactive prompt:
 

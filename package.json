@@ -19,6 +19,7 @@
     "src",
     "plugins",
     "integrations",
+    "skills",
     ".agents",
     ".claude-plugin",
     ".cursor-plugin",
