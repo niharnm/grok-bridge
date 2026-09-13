@@ -2,7 +2,7 @@
 
 Grok Bridge connects Codex, Claude Code, Cursor, and Antigravity to Grok Bot through one CLI, with eight configured directions. Forward routes use the community `gbot` client. For a reverse route, a Bot runs `grok-bridge run` on a computer where the target coding CLI and repository are available.
 
-The Codex/Grok Bot reciprocal path has passed live checks on macOS: Codex submitted a task and received a correlated reply, then Grok Bot invoked native local Codex execution and returned a result independently matched to the real Codex session and known fixture. The other six directions remain unverified. Claude provider access is disabled with a 403 response, Cursor requires CLI login, and Antigravity live acceptance is pending. Host plugin loading and saving the Bot skill are also unverified. See the [acceptance record](acceptance.md). The gateway and completion-marker convention remain experimental.
+Three directions passed live checks on macOS: Codex to Grok Bot, Grok Bot to Codex, and Grok Bot to Antigravity. Native return paths were independently matched to actual local sessions and a known fixture. Claude provider access is disabled, Cursor requires CLI login, and Antigravity's source-host command was denied by native policy. Host plugin loading and saving the Bot skill remain unverified. See the [acceptance record](acceptance.md). The gateway and completion-marker convention remain experimental.
 
 ## A coding host to Grok Bot
 

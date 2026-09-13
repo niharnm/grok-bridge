@@ -1,6 +1,6 @@
 # Launch drafts and distribution notes
 
-Prepared for Nihar on 2026-09-13 for `0.1.0-alpha.1`. Social posts and directory submissions below are unpublished drafts. GitHub publication of this alpha is pending. Verify the public tag and installation instructions before using either draft.
+Prepared for Nihar on 2026-09-13 for `0.1.0-alpha.1`. Social posts and directory submissions below are unpublished drafts. The GitHub repository is public, with the alpha implementation in [review PR #1](https://github.com/niharnm/grok-bridge/pull/1). Verify the public tag and installation instructions before using either draft.
 
 Project: [niharnm/grok-bridge](https://github.com/niharnm/grok-bridge).
 
@@ -8,13 +8,13 @@ Project: [niharnm/grok-bridge](https://github.com/niharnm/grok-bridge).
 
 An open-source CLI for explicit task handoffs between Grok Bot, Codex, Claude Code, Cursor, and Antigravity, with one shared implementation and eight configured directions.
 
-State the alpha limits beside that description: the Codex/Grok Bot reciprocal path passed live checks, including an independently checked native Codex session and fixture on the return path. The other six directions remain unverified. Claude provider access returns 403, Cursor requires CLI login, and Antigravity live acceptance is pending. Host plugin loading and saved Bot skills remain unverified. The forward transport uses the community `gbot` client and an undocumented provider gateway. Reverse tasks run on the selected computer where the coding CLI, login, and repository exist.
+State the alpha limits beside that description: the Codex/Grok Bot reciprocal path passed live checks, including an independently checked native Codex session and fixture on the return path. Grok Bot to Antigravity also passed with its native session and fixture independently checked. Claude provider access returns 403, Cursor requires CLI login, and Antigravity source-host command permissions blocked its forward attempt. Host plugin loading and saved Bot skills remain unverified. The forward transport uses the community `gbot` client and an undocumented provider gateway. Reverse tasks run on the selected computer where the coding CLI, login, and repository exist.
 
 Use the tagged GitHub installation: `npm install -g github:niharnm/grok-bridge#v0.1.0-alpha.1`. Do not advertise `npm install grok-bridge` as a registry release unless that release has actually been published and checked.
 
 ## X post draft
 
-> I'm Nihar, building Grok Bridge: Grok Bot ↔ Codex, Claude Code, Cursor & Antigravity. One CLI, eight configured directions. Codex/Grok round trip tested; others unverified. Experimental alpha using community gbot. https://github.com/niharnm/grok-bridge
+> I'm Nihar, building Grok Bridge: Grok Bot ↔ Codex, Claude Code, Cursor & Antigravity. One CLI, eight configured directions. 3/8 directions live-tested; access gaps documented. Experimental alpha using community gbot. https://github.com/niharnm/grok-bridge
 
 ## Technical community post draft
 
@@ -26,7 +26,7 @@ The alpha has one CLI, native Codex, Claude Code, and Cursor plugin packaging, a
 
 The distinction between submission and completion matters: a send acknowledgement returns `submitted`. Waiting accepts an exact terminal marker only from a Bot message tied to the matching request. Prompt echoes, unrelated replies, and an idle conversation do not count. Reads cover the most recent 200 transcript entries, and a timeout does not cancel cloud work.
 
-The Codex/Grok Bot reciprocal path has been exercised live. Codex submitted a task and received a correlated Bot reply; Grok Bot then invoked local Codex and returned a result that was independently matched to the native session and a known fixture. Standalone Codex review, explicit resume, and scoped edits also passed. The other six routes remain unverified: Claude provider access is disabled, Cursor needs CLI login, and Antigravity live acceptance is pending. Plugin UI loading and saving the Bot skill have not been verified. The undocumented gateway can change and break this adapter. This is an experimental independent project with no vendor endorsement.
+The Codex/Grok Bot reciprocal path has been exercised live. Codex submitted a task and received a correlated Bot reply; Grok Bot then invoked local Codex and returned a result that was independently matched to the native session and a known fixture. Standalone Codex review, explicit resume, and scoped edits also passed. Native Antigravity reads and edits, plus the Grok Bot to Antigravity direction, also passed. Five directions remain unverified: Claude provider access is disabled, Cursor needs CLI login, and Antigravity source-host command permission was denied. Plugin UI loading and saving the Bot skill have not been verified. The undocumented gateway can change and break this adapter. This is an experimental independent project with no vendor endorsement.
 
 The repository includes pinned installation instructions, tests, and current limits. Reproducible feedback is welcome, especially for the Claude, Cursor, and Antigravity routes and normal host skill loading. Please include versions and a minimal task, and remove credentials and private transcript content from reports.
 

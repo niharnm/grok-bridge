@@ -54,7 +54,7 @@ Antigravity review requests plan mode. It is not an enforced filesystem write lo
 
 `npm run check` passed JavaScript syntax and JSON parsing checks. Prettier 3.6.2 checks passed. There is no compilation step or TypeScript project. Official Codex plugin, Agent Skill, Claude plugin/marketplace, and Cursor template validators passed. Cursor reported only optional absent hooks/MCP notices. These validators do not establish provider access or native skill loading.
 
-CI runs Node.js 22/24 on macOS/Linux. Consult the [actual workflow runs](https://github.com/niharnm/grok-bridge/actions/workflows/ci.yml) for results, rather than treating a configured matrix as a pass. The packed artifact contained 27 intended runtime, plugin, skill, and documentation files, with no test-account data. An offline install into a fresh task-local prefix passed `--version` and `--help`. Public installation evidence will be recorded with the release.
+All four CI jobs passed on Node.js 22/24 across macOS/Linux for [implementation commit 3ef2c14](https://github.com/niharnm/grok-bridge/actions/runs/34779977379), including check, tests and package creation. Consult the [workflow runs](https://github.com/niharnm/grok-bridge/actions/workflows/ci.yml) for later revisions. The packed artifact contained 27 intended runtime, plugin, skill, and documentation files, with no test-account data. An offline install into a fresh task-local prefix passed `--version` and `--help`. A fresh installation from public GitHub commit `3ef2c14` also passed `--version` and `--help`. The release notes record the tagged installation check.
 
 ## Open acceptance
 
