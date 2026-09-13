@@ -37,5 +37,29 @@ previous-host redirect are tracked in the [distribution record](launch.md#distri
 A project-level `/grok-bridge/robots.txt` is not a domain-root crawler policy;
 use the sitemap submission and page metadata for discovery.
 
+## Previous URL
+
+The previous `grok-bridge-henna.vercel.app` address now returns permanent
+HTTP 308 redirects to Pages. Root, asset, nested missing-route, and query-string
+checks passed. The old address serves only redirects; the website content
+is hosted on GitHub Pages.
+
+The deployed routing source is [legacy-redirect.json](legacy-redirect.json),
+using Vercel's [Build Output API](https://vercel.com/docs/build-output-api/configuration).
+Ordinary static deployments did not apply the redirect configuration during
+migration, so use the verified prebuilt procedure below from the repository
+root. First ensure `docs/.vercel/project.json` identifies the existing
+`grok-bridge` project. The generated output must contain only `config.json`
+and `static/favicon.svg`.
+
+```sh
+mkdir -p docs/.vercel/output/static
+cp docs/legacy-redirect.json docs/.vercel/output/config.json
+cp docs/favicon.svg docs/.vercel/output/static/favicon.svg
+vercel deploy --prebuilt --cwd docs --prod --yes --scope niharnsm-8472s-projects
+```
+
+Normal website updates use GitHub Actions and require no Vercel deployment.
+
 See GitHub's [domain inheritance rules](https://docs.github.com/en/pages/configuring-a-custom-domain-for-your-github-pages-site/about-custom-domains-and-github-pages)
 and [Actions publishing documentation](https://docs.github.com/en/pages/getting-started-with-github-pages/using-custom-workflows-with-github-pages).

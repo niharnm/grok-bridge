@@ -80,7 +80,9 @@ Live browser checks confirmed skip-link focus on `main`, copy success feedback, 
 
 The approved account Pages domain cleanup removed the inherited portfolio redirect. Portfolio DNS and hosting were untouched; both portfolio URLs retained identical HTML hashes, status, host and redirect behavior. See the [deployment guide](github-pages.md) for the configuration and publishing workflow.
 
-Google Search Console ownership and sitemap processing were previously verified for the old Vercel URL. That homepage was discovered but not indexed, and its manual indexing request hit Google's daily quota. Those observations do not establish ownership or indexing of the new Pages URL; current setup is tracked in the distribution record.
+The old Vercel address now returns permanent HTTP 308 redirects to Pages. Four checks passed for the home, an asset, a nested missing route, and query-string preservation. The tracked `legacy-redirect.json` matches the deployed prebuilt routing configuration.
+
+Google Search Console verified ownership of the new Pages property and confirmed sitemap submission. Its initial processing result could not read the sitemap, despite public HTTP 200; no indexing result is claimed. IndexNow accepted one submission for the new URL with HTTP 202, pending key validation. Current setup and external processing limits are tracked in the distribution record.
 
 ### Public skill pack
 

@@ -6,7 +6,7 @@ Project: [niharnm/grok-bridge](https://github.com/niharnm/grok-bridge).
 
 ## Distribution record
 
-Checked September 13, 2026. The [public website](https://grok-bridge-henna.vercel.app/) and [shared Agent Skill](../skills/grok-bridge/SKILL.md) are published. Website responses, the custom 404, assets, sitemap, copy feedback, and keyboard navigation were checked. A fresh project installed the shared skill from the public GitHub source and matched its bytes. The repository includes the `claude-skills` and `claude-code-skill` topics used by SkillsMP discovery.
+Checked September 13, 2026. The [GitHub Pages website](https://niharnm.github.io/grok-bridge/), [shared Agent Skill](../skills/grok-bridge/SKILL.md), and [skills.sh pack](https://skills.sh/p/o02Pja39oijRhbnx) are published. Website responses, the custom 404, assets, sitemap, copy feedback, and keyboard navigation were checked. Fresh projects installed the shared skill from both GitHub and the skills.sh pack and matched its bytes. The repository includes the `claude-skills` and `claude-code-skill` topics used by SkillsMP discovery.
 
 | Destination | Actual result |
 | --- | --- |
@@ -14,16 +14,19 @@ Checked September 13, 2026. The [public website](https://grok-bridge-henna.verce
 | [Awesome Codex Plugins #18](https://github.com/noahfraiture/awesome-codex-plugins/pull/18) | Submitted; open and unmerged. One README entry with installation prerequisites. |
 | [Awesome Antigravity Skills #2](https://github.com/LichAmnesia/awesome-antigravity-skills/pull/2) | Submitted; open and unmerged. One README entry, local link check passed 60/60. Upstream workflow awaits maintainer authorization. |
 | [Awesome Cursor Skills #78](https://github.com/spencerpauly/awesome-cursor-skills/pull/78) | Submitted; open and unmerged. One Workflow entry, with Cursor authentication and host-loading gaps disclosed. |
-| IndexNow | Submitted the public website URL once after checking its hosted ownership file. HTTP 202 means key verification is pending. It does not establish crawling, search inclusion, ranking, or Google indexing. |
-| Google Search Console | Ownership verified by HTML tag. Sitemap processed successfully with one page discovered. The homepage is discovered but currently not indexed; the separate manual indexing request was rejected because the account reached its daily quota. |
+| IndexNow | Submitted the new Pages URL once after verifying its hosted ownership file. HTTP 202 means key verification is pending. It does not establish crawling, search inclusion, ranking, or Google indexing. |
+| Google Search Console | New Pages property ownership verified by HTML tag. Sitemap submission confirmed successfully; its first processing result was "Sitemap could not be read" with zero discovered pages. The public sitemap returns HTTP 200 and contains the canonical homepage. Search indexing remains unverified. No repeat manual indexing request was made after the account's earlier daily quota error. |
 | npm registry | Not published. The current terminal returned `ENEEDAUTH`; maintainer login is required. Tagged GitHub installation remains available. |
 | Claude, Cursor, Smithery | Publishing forms reached their actual sign-in screens. No application or skill registration was submitted. Native Claude and Cursor acceptance also remains incomplete. |
-| skills.sh and SkillsMP | Canonical skill published on `main` and installable. skills.sh still renders an unavailable listing; SkillsMP inclusion is unverified. skills.sh has no manual leaderboard submission. See [index requirements](skill-indexes.md). |
+| [skills.sh pack](https://skills.sh/p/o02Pja39oijRhbnx) | Created an unlisted, shareable pack with the public skill. One fresh installation passed without authentication and matched source bytes. The recorded test download is not independent adoption. |
+| skills.sh leaderboard and SkillsMP | Canonical skill published on `main` and installable. Public leaderboard and SkillsMP inclusion remain unverified. The shareable pack is separate from a leaderboard entry. See [index requirements](skill-indexes.md). |
 | [Skillboard](https://www.skillboard.lol/submit) | Submitted the public `main/skills/grok-bridge` directory once. The form confirmed submission for review. Acceptance and catalog inclusion are not yet verified. |
 
 Directory PRs are proposals for maintainer review, not accepted listings or evidence of adoption. No social announcement or direct message has been posted. The [IndexNow protocol](https://www.indexnow.org/documentation) permits the same-host `indexnow.txt` verification file and explicit `keyLocation`; its [FAQ](https://www.indexnow.org/faq) explains ownership and submission limits.
 
-The current public deployment remains on Vercel while the [GitHub Pages migration](github-pages.md) is prepared. The new workflow stages ten public files from `docs/` and publishes changes from `main`. Local project-path, asset, copy, and 404 recovery checks passed. Activation awaits approval to change the separate account Pages repository, whose inherited custom domain currently redirects the project to a portfolio 404. The portfolio DNS and hosting have not changed. Search Console and IndexNow results above apply to the existing Vercel URL, not the proposed Pages URL.
+The [GitHub Pages migration](github-pages.md) is complete. [PR #2](https://github.com/niharnm/grok-bridge/pull/2) is merged, and the workflow publishes ten public files from `main`. Eighteen live Pages HTTP checks passed. The previous Vercel address now returns permanent HTTP 308 redirects, with four checks confirming home, asset, missing-route, and query-string behavior. The approved account Pages domain cleanup left portfolio DNS and hosting unchanged; before/after portfolio HTML hashes and responses matched.
+
+The search results above apply to the new Pages URL. The former Vercel property's sitemap had processed successfully with one discovered page, but that prior result does not transfer to the new property.
 
 ## Positioning
 
