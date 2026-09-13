@@ -1,6 +1,6 @@
 # Launch drafts and distribution notes
 
-Prepared for Nihar on 2026-09-13 for `0.1.0-alpha.1`. The [alpha release](https://github.com/niharnm/grok-bridge/releases/tag/v0.1.0-alpha.1) is published and its tagged GitHub installation passed. The implementation remains in [review PR #1](https://github.com/niharnm/grok-bridge/pull/1), without a merge. Social posts below remain unpublished drafts.
+Prepared for Nihar on 2026-09-13 for `0.1.0-alpha.1`. The [alpha release](https://github.com/niharnm/grok-bridge/releases/tag/v0.1.0-alpha.1) is published and its tagged GitHub installation passed. [PR #1](https://github.com/niharnm/grok-bridge/pull/1) was merged into `main` on September 13, 2026, after its checks passed. `main` is now the default branch. Social posts below remain unpublished drafts.
 
 Project: [niharnm/grok-bridge](https://github.com/niharnm/grok-bridge).
 
@@ -18,11 +18,12 @@ Checked September 13, 2026. The [public website](https://grok-bridge-henna.verce
 | Google Search Console | Ownership verified by HTML tag. Sitemap processed successfully with one page discovered. The homepage is discovered but currently not indexed; the separate manual indexing request was rejected because the account reached its daily quota. |
 | npm registry | Not published. The current terminal returned `ENEEDAUTH`; maintainer login is required. Tagged GitHub installation remains available. |
 | Claude, Cursor, Smithery | Publishing forms reached their actual sign-in screens. No application or skill registration was submitted. Native Claude and Cursor acceptance also remains incomplete. |
-| skills.sh and SkillsMP | Canonical skill published and installable; catalog inclusion is not verified. See [index requirements](skill-indexes.md). |
+| skills.sh and SkillsMP | Canonical skill published on `main` and installable. skills.sh still renders an unavailable listing; SkillsMP inclusion is unverified. skills.sh has no manual leaderboard submission. See [index requirements](skill-indexes.md). |
+| [Skillboard](https://www.skillboard.lol/submit) | Submitted the public `main/skills/grok-bridge` directory once. The form confirmed submission for review. Acceptance and catalog inclusion are not yet verified. |
 
 Directory PRs are proposals for maintainer review, not accepted listings or evidence of adoption. No social announcement or direct message has been posted. The [IndexNow protocol](https://www.indexnow.org/documentation) permits the same-host `indexnow.txt` verification file and explicit `keyLocation`; its [FAQ](https://www.indexnow.org/faq) explains ownership and submission limits.
 
-The website uses a separate Vercel project. Its source is in `docs/`; `docs/vercel.json` configures static hosting, and `.vercelignore` excludes documentation, environment files, and deployment metadata. After linking the intended Vercel project, publish changes with `vercel deploy --cwd docs --prod` and verify the public production URL. GitHub Pages is disabled for this repository because an inherited account-domain redirect did not serve the project. This did not change the portfolio's hosting or domain settings.
+The current public deployment remains on Vercel while the [GitHub Pages migration](github-pages.md) is prepared. The new workflow stages ten public files from `docs/` and publishes changes from `main`. Local project-path, asset, copy, and 404 recovery checks passed. Activation awaits approval to change the separate account Pages repository, whose inherited custom domain currently redirects the project to a portfolio 404. The portfolio DNS and hosting have not changed. Search Console and IndexNow results above apply to the existing Vercel URL, not the proposed Pages URL.
 
 ## Positioning
 
