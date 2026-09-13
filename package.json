@@ -34,7 +34,7 @@
     "type": "git",
     "url": "git+https://github.com/niharnm/grok-bridge.git"
   },
-  "homepage": "https://github.com/niharnm/grok-bridge#readme",
+  "homepage": "https://grok-bridge-henna.vercel.app/",
   "bugs": {
     "url": "https://github.com/niharnm/grok-bridge/issues"
   },
