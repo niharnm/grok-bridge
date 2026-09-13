@@ -1,0 +1,23 @@
+{
+  "name": "grok-bridge",
+  "owner": {
+    "name": "Nihar"
+  },
+  "metadata": {
+    "description": "Shared skills for Grok Bot handoffs with Codex, Claude Code, and Cursor.",
+    "version": "0.1.0-alpha.1"
+  },
+  "plugins": [
+    {
+      "name": "grok-bridge",
+      "source": "./plugins/grok-bridge",
+      "description": "Send scoped tasks to Grok Bot and run coding CLIs.",
+      "version": "0.1.0-alpha.1",
+      "author": {
+        "name": "Nihar"
+      },
+      "license": "MIT",
+      "keywords": ["grok-bot", "codex", "claude-code", "cursor", "delegation"]
+    }
+  ]
+}

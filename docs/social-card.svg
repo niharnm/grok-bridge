@@ -1,0 +1,161 @@
+<svg
+  xmlns="http://www.w3.org/2000/svg"
+  width="1200"
+  height="630"
+  viewBox="0 0 1200 630"
+  role="img"
+  aria-labelledby="title description"
+>
+  <title id="title">Grok Bridge. Task handoffs. One CLI.</title>
+  <desc id="description">
+    Independent open-source experimental alpha for configured task handoffs
+    between Grok Bot, Codex, Claude Code, Cursor, and Antigravity.
+  </desc>
+  <rect width="1200" height="630" fill="#f6f7f1" />
+  <g transform="translate(64 64) scale(.625)">
+    <rect width="64" height="64" rx="12" fill="#183229" />
+    <path
+      d="M14 43V29a18 18 0 0 1 36 0v14M14 32h36M26 43V32m12 11V32"
+      stroke="#e8eddf"
+      stroke-width="5"
+      fill="none"
+      stroke-linecap="square"
+    />
+  </g>
+  <text
+    x="120"
+    y="91"
+    fill="#4f6158"
+    font-family="Avenir Next, Avenir, sans-serif"
+    font-size="15"
+    font-weight="500"
+    letter-spacing="1.8"
+  >
+    INDEPENDENT OPEN SOURCE
+  </text>
+  <rect x="908" y="64" width="228" height="40" rx="20" fill="#e8eddf" />
+  <circle cx="930" cy="84" r="4" fill="#286a45" />
+  <text
+    x="946"
+    y="90"
+    fill="#183229"
+    font-family="Avenir Next, Avenir, sans-serif"
+    font-size="17"
+    font-weight="500"
+  >
+    Experimental alpha
+  </text>
+  <path d="M64 126H1136" stroke="#cbd2c6" />
+
+  <text
+    x="60"
+    y="277"
+    fill="#183229"
+    font-family="Iowan Old Style, Palatino, Georgia, serif"
+    font-size="100"
+    letter-spacing="-4"
+  >
+    Grok Bridge
+  </text>
+  <text
+    x="64"
+    y="340"
+    fill="#183229"
+    font-family="Avenir Next, Avenir, sans-serif"
+    font-size="34"
+    font-weight="500"
+    letter-spacing="-.7"
+  >
+    Task handoffs. One CLI.
+  </text>
+  <text
+    x="64"
+    y="389"
+    fill="#4f6158"
+    font-family="Avenir Next, Avenir, sans-serif"
+    font-size="22"
+  >
+    Grok Bot and your coding tools.
+  </text>
+
+  <rect x="765" y="181" width="371" height="292" fill="#e6eade" />
+  <rect
+    x="758"
+    y="174"
+    width="371"
+    height="292"
+    fill="#fffef8"
+    stroke="#cbd2c6"
+  />
+  <text
+    x="784"
+    y="203"
+    fill="#4f6158"
+    font-family="Avenir Next, Avenir, sans-serif"
+    font-size="12"
+    font-weight="500"
+    letter-spacing="1.7"
+  >
+    CONFIGURED HANDOFFS
+  </text>
+  <path
+    d="M784 222H1103M784 278H1103M784 334H1103M784 390H1103M784 446H1103"
+    stroke="#cbd2c6"
+  />
+  <g
+    fill="#183229"
+    font-family="Iowan Old Style, Palatino, Georgia, serif"
+    font-size="23"
+    font-style="italic"
+  >
+    <text x="784" y="258">Grok Bot</text>
+    <text x="784" y="314">Grok Bot</text>
+    <text x="784" y="370">Grok Bot</text>
+    <text x="784" y="426">Grok Bot</text>
+  </g>
+  <g
+    fill="none"
+    stroke="#4f6158"
+    stroke-width="1.5"
+    stroke-linecap="square"
+    stroke-linejoin="miter"
+  >
+    <path d="M902 248h29m-24-5-5 5 5 5m19-10 5 5-5 5" />
+    <path d="M902 304h29m-24-5-5 5 5 5m19-10 5 5-5 5" />
+    <path d="M902 360h29m-24-5-5 5 5 5m19-10 5 5-5 5" />
+    <path d="M902 416h29m-24-5-5 5 5 5m19-10 5 5-5 5" />
+  </g>
+  <g
+    fill="#183229"
+    font-family="Avenir Next, Avenir, sans-serif"
+    font-size="22"
+    font-weight="500"
+  >
+    <text x="952" y="258">Codex</text>
+    <text x="952" y="314">Claude Code</text>
+    <text x="952" y="370">Cursor</text>
+    <text x="952" y="426">Antigravity</text>
+  </g>
+
+  <path d="M64 516H1136" stroke="#cbd2c6" />
+  <text
+    x="64"
+    y="559"
+    fill="#4f6158"
+    font-family="Avenir Next, Avenir, sans-serif"
+    font-size="20"
+    font-weight="500"
+  >
+    github.com/niharnm/grok-bridge
+  </text>
+  <text
+    x="1136"
+    y="559"
+    text-anchor="end"
+    fill="#4f6158"
+    font-family="Avenir Next, Avenir, sans-serif"
+    font-size="17"
+  >
+    Open-source CLI + skills
+  </text>
+</svg>
