@@ -5,14 +5,14 @@
   },
   "metadata": {
     "description": "Shared skills for Grok Bot handoffs with Codex, Claude Code, and Cursor.",
-    "version": "0.1.0-alpha.1"
+    "version": "0.1.0-alpha.2"
   },
   "plugins": [
     {
       "name": "grok-bridge",
       "source": "./plugins/grok-bridge",
       "description": "Send scoped tasks to Grok Bot and run coding CLIs.",
-      "version": "0.1.0-alpha.1",
+      "version": "0.1.0-alpha.2",
       "author": {
         "name": "Nihar"
       },

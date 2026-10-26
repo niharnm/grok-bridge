@@ -9,7 +9,9 @@ Checked September 13, 2026. Implementation, offline tests, live provider checks,
 - Community grok-bot-cli 0.2.3, inspected commit `9192bf8f4c05d65abdb568554d3809ec5e4e380f`.
 - A dedicated Grok Bot and an isolated scratch Git repository with a known fixture.
 
-## Eight configured directions
+## Original eight directions
+
+These are the `0.1.0-alpha.1` routes. The two Muse Code directions are recorded separately [below](#muse-code-destination).
 
 | Direction | Observed result | Remaining boundary |
 | --- | --- | --- |
@@ -58,7 +60,7 @@ All four CI jobs passed on Node.js 22/24 across macOS/Linux for [implementation 
 
 ## Muse Code destination
 
-Added October 26, 2026, after the alpha tag. The Muse Code routes are configured but have no live exchange yet. Muse Code was not installed on the development host, and no Muse login was used.
+Added October 26, 2026, and released in `0.1.0-alpha.2`. The Muse Code routes are configured but have no live exchange yet. Muse Code was not installed on the development host, and no Muse login was used.
 
 | Check | Observed result |
 | --- | --- |

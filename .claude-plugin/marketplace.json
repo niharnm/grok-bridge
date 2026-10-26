@@ -6,13 +6,13 @@
   },
   "metadata": {
     "description": "Shared skills for task handoffs across Grok Bot, Codex, Claude Code, Cursor, Antigravity, and Muse Code.",
-    "version": "0.1.0-alpha.1"
+    "version": "0.1.0-alpha.2"
   },
   "plugins": [
     {
       "name": "grok-bridge",
       "description": "Send scoped tasks to Grok Bot and run local coding CLIs.",
-      "version": "0.1.0-alpha.1",
+      "version": "0.1.0-alpha.2",
       "author": {
         "name": "Nihar"
       },

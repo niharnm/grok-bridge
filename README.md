@@ -6,11 +6,11 @@
 [![MIT license](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
 [![Node.js 22+](https://img.shields.io/badge/node-%E2%89%A522-43853d.svg)](package.json)
 
-[Website](https://niharnm.github.io/grok-bridge/) · [Shared skill install](docs/skill-indexes.md) · [skills.sh pack](https://skills.sh/p/o02Pja39oijRhbnx) · [Release](https://github.com/niharnm/grok-bridge/releases/tag/v0.1.0-alpha.1)
+[Website](https://niharnm.github.io/grok-bridge/) · [Shared skill install](docs/skill-indexes.md) · [skills.sh pack](https://skills.sh/p/o02Pja39oijRhbnx) · [Release](https://github.com/niharnm/grok-bridge/releases/tag/v0.1.0-alpha.2)
 
 Hand a bounded task to another tool, get a result, and continue where you started. Grok Bridge packages a small shared runner, Codex, Claude Code, and Cursor plugins plus Antigravity and Muse Code skills, and a Grok Bot setup workflow. No runtime npm dependencies, separate bridge account, or custom remote-command server.
 
-**Experimental alpha.** Three directions have live evidence: Codex to Grok Bot, Grok Bot to Codex, and Grok Bot to Antigravity. Native Codex and Antigravity reads and edits also passed. Claude provider access, Cursor login, Antigravity source-host command permissions, and actual host skill discovery still limit acceptance. See the [acceptance record](docs/acceptance.md).
+**Experimental alpha.** Three directions have live evidence: Codex to Grok Bot, Grok Bot to Codex, and Grok Bot to Antigravity. Native Codex and Antigravity reads and edits also passed. Claude provider access, Cursor login, Antigravity source-host command permissions, and actual host skill discovery still limit acceptance. The Muse Code routes, added in `0.1.0-alpha.2`, have offline tests only and no live exchange yet. See the [acceptance record](docs/acceptance.md).
 
 | From | To | How |
 | --- | --- | --- |
@@ -32,7 +32,7 @@ Grok Bot's cloud computer is separate from your laptop. The reverse routes use i
 Install [Node.js 22 or newer](https://nodejs.org/en/download), then install from this repository:
 
 ```sh
-npm install -g github:niharnm/grok-bridge#v0.1.0-alpha.1
+npm install -g github:niharnm/grok-bridge#v0.1.0-alpha.2
 grok-bridge doctor
 ```
 
@@ -63,8 +63,6 @@ grok-bridge run --to antigravity --cwd /absolute/repo --mode review --task-file 
 grok-bridge run --to muse --cwd /absolute/repo --mode review --task-file task.txt
 ```
 
-The `muse` target is newer than the `v0.1.0-alpha.1` tag. To use it, install from `main` with `npm install -g github:niharnm/grok-bridge` until the next tag.
-
 `review` is the default. `work` explicitly permits edits within the task's scope. Supply `--model` only to select a particular destination model; otherwise its configured default applies. To continue a returned native session, use `--session SESSION_UUID` with the same target and repository. Nothing silently selects the most recent session.
 
 ## Install the host plugins
@@ -74,7 +72,7 @@ For a single shared Agent Skill across Codex, Claude Code, Cursor, Antigravity, 
 For **Claude Code**, run in its interactive prompt:
 
 ```text
-/plugin marketplace add niharnm/grok-bridge@v0.1.0-alpha.1
+/plugin marketplace add niharnm/grok-bridge@v0.1.0-alpha.2
 /plugin install grok-bridge@grok-bridge
 ```
 
@@ -83,7 +81,7 @@ Use `/grok-bridge:forward` to delegate to a chosen Grok Bot. `/grok-bridge:run` 
 For **Codex**, add the repository marketplace:
 
 ```sh
-codex plugin marketplace add niharnm/grok-bridge --ref v0.1.0-alpha.1
+codex plugin marketplace add niharnm/grok-bridge --ref v0.1.0-alpha.2
 ```
 
 Install Grok Bridge from the plugin browser and start a new session. Ask it to use the `forward` skill with a specific Bot and task. The repository includes the supported `.codex-plugin` compatibility manifest and `.agents/plugins/marketplace.json`.
@@ -134,7 +132,7 @@ The local child receives `GROK_BRIDGE_CHILD=1`; recursive bridge calls fail. Hos
 ## Development and evidence
 
 ```sh
-git clone --branch v0.1.0-alpha.1 https://github.com/niharnm/grok-bridge.git
+git clone --branch v0.1.0-alpha.2 https://github.com/niharnm/grok-bridge.git
 cd grok-bridge
 npm run check
 npm test

@@ -5,7 +5,7 @@ description: Delegate a bounded task to Codex, Claude Code, Cursor, Antigravity,
 
 # Run a coding CLI
 
-Use the separately installed `grok-bridge` executable on PATH. Install this alpha with `npm install -g github:niharnm/grok-bridge#v0.1.0-alpha.1`. Do not walk out of the plugin cache to locate runtime scripts. Installation instructions are at [Grok Bridge](https://github.com/niharnm/grok-bridge/tree/v0.1.0-alpha.1).
+Use the separately installed `grok-bridge` executable on PATH. Install this alpha with `npm install -g github:niharnm/grok-bridge#v0.1.0-alpha.2`. Do not walk out of the plugin cache to locate runtime scripts. Installation instructions are at [Grok Bridge](https://github.com/niharnm/grok-bridge/tree/v0.1.0-alpha.2).
 
 ## Check host and scope
 
@@ -21,7 +21,7 @@ Cursor review uses `--mode ask --sandbox enabled` without force. Cursor work use
 
 Antigravity invokes the official `agy` CLI. Review selects `--mode plan`, which supplies review instructions without enforcing read-only access. Work selects `--mode accept-edits`. Both use `--sandbox --disable-slash-commands`; the sandbox can permit workspace writes. A successful terminal response can still follow a denied action, so verify that the required work actually happened. Do not bypass native permissions. Use `GROK_BRIDGE_ANTIGRAVITY_BIN` for a custom absolute executable path.
 
-Muse Code invokes Meta's `muse exec`. Both modes use `--approval-mode never` with Muse's OS sandbox on, so nothing waits for approval and the sandbox contains what runs. Review adds `--disable-write --disable-shell`. The bridge never adds `--yolo`, `--disable-sandbox`, or `--trust-workspace`. A run that waited on a tool approval returns `blocked`. Use `GROK_BRIDGE_MUSE_BIN` for a custom absolute executable path. The `muse` target is newer than the `v0.1.0-alpha.1` tag. To use it, install from `main` with `npm install -g github:niharnm/grok-bridge` until the next tag.
+Muse Code invokes Meta's `muse exec`. Both modes use `--approval-mode never` with Muse's OS sandbox on, so nothing waits for approval and the sandbox contains what runs. Review adds `--disable-write --disable-shell`. The bridge never adds `--yolo`, `--disable-sandbox`, or `--trust-workspace`. A run that waited on a tool approval returns `blocked`. Use `GROK_BRIDGE_MUSE_BIN` for a custom absolute executable path.
 
 ## Invoke the requested CLI
 

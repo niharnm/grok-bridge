@@ -11,7 +11,7 @@ The adapter follows the `muse exec --help` output of Muse Code 1.4.12 and Meta's
 Install Node.js 22 or newer, then the runtime:
 
 ```sh
-npm install -g github:niharnm/grok-bridge
+npm install -g github:niharnm/grok-bridge#v0.1.0-alpha.2
 ```
 
 Install [Muse Code](https://dev.meta.ai/docs/muse-code) on the computer that will run the task, using Meta's installer. Sign in once interactively with `muse login`. Headless runs use that stored login. The bridge never reads or copies Muse credentials.

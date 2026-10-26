@@ -14,7 +14,7 @@ The forward gateway is experimental. This alpha has no verified authenticated Cu
 Install Node.js 22 or newer and the tagged CLI:
 
 ```sh
-npm install -g github:niharnm/grok-bridge#v0.1.0-alpha.1
+npm install -g github:niharnm/grok-bridge#v0.1.0-alpha.2
 ```
 
 Use the tag for both the runtime and plugin. The repository's default branch can differ from the alpha's implementation.
@@ -22,7 +22,7 @@ Use the tag for both the runtime and plugin. The repository's default branch can
 For Cursor's native plugin, clone the same tag into a new directory:
 
 ```sh
-git clone --branch v0.1.0-alpha.1 --depth 1 https://github.com/niharnm/grok-bridge.git grok-bridge-alpha
+git clone --branch v0.1.0-alpha.2 --depth 1 https://github.com/niharnm/grok-bridge.git grok-bridge-alpha
 ```
 
 Copy the clone's `plugins/grok-bridge` directory, including its hidden `.cursor-plugin` directory, into `~/.cursor/plugins/local/grok-bridge`. If that destination already exists, inspect it before updating; preserve any local changes. Restart Cursor or run **Developer: Reload Window**, then confirm the `forward` and `run` skills under **Customize**.
