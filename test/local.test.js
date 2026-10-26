@@ -209,3 +209,93 @@ test("Antigravity dispatch encodes one stdin event and preserves a blocked resul
   assert.match(input.message.content, /TASK\nRead fixture\./);
   assert.equal(invocation[2].env.GROK_BRIDGE_CHILD, "1");
 });
+
+test("Muse dispatch uses a private prompt file, pins the launcher, and cleans up", async () => {
+  const { existsSync, readFileSync, statSync } = await import("node:fs");
+  let invocation;
+  let promptPath;
+  let promptText;
+  let promptMode;
+  const museSession = "01a13133-e061-7931-8c96-0837aa59f1fb";
+  const envelope = (type, payload) =>
+    JSON.stringify({
+      schema_version: 1,
+      stream: { kind: "session", id: museSession },
+      payload_type: type,
+      payload,
+    });
+  const result = await runLocal({
+    to: "muse",
+    cwd: "/tmp/repo",
+    task: "Read $(literal) `whoami`.",
+    requestId: session,
+    execute: async (...args) => {
+      invocation = args;
+      promptPath = args[1][args[1].indexOf("--prompt-file") + 1];
+      promptText = readFileSync(promptPath, "utf8");
+      promptMode = statSync(promptPath).mode & 0o777;
+      return {
+        stdout: [
+          envelope("run.output.delta", { kind: "run_output_delta", text: "Read it." }),
+          envelope("run.terminal.completed", {
+            kind: "run_terminal",
+            terminal: "completed",
+            text: "Read it.",
+            reason: null,
+          }),
+        ].join("\n"),
+      };
+    },
+  });
+  assert.deepEqual(
+    { status: result.status, session: result.session, provider: result.provider },
+    { status: "completed", session: museSession, provider: "muse" },
+  );
+  assert.equal(invocation[0], "muse");
+  assert.equal(invocation[1][0], "exec");
+  assert.ok(invocation[1].includes("--disable-write"));
+  assert.ok(!invocation[1].join(" ").includes("whoami"));
+  assert.equal(invocation[2].input, "");
+  assert.equal(invocation[2].env.GROK_BRIDGE_CHILD, "1");
+  assert.equal(invocation[2].env.MUSE_NO_AUTO_UPDATE, "1");
+  assert.equal(invocation[2].env.MUSE_LOGIN, "0");
+  assert.match(promptText, /^HANDOFF_CHILD: grok-bridge /);
+  assert.match(promptText, /TASK\nRead \$\(literal\) `whoami`\.\n$/);
+  assert.equal(promptMode, 0o600);
+  assert.ok(!existsSync(promptPath));
+});
+
+test("Muse failed run on nonzero exit is reported without leaking its reason", async () => {
+  const error = Object.assign(new Error("nonzero"), {
+    code: "PROCESS_EXIT",
+    stdout: JSON.stringify({
+      schema_version: 1,
+      stream: { kind: "session", id: "01a13133-e061-7931-8c96-0837aa59f1fb" },
+      payload_type: "run.terminal.failed",
+      payload: {
+        kind: "run_terminal",
+        terminal: "failed",
+        text: "",
+        reason: "private provider detail",
+      },
+    }),
+  });
+  let promptPath;
+  await assert.rejects(
+    runLocal({
+      to: "muse",
+      cwd: "/tmp/repo",
+      task: "check",
+      requestId: session,
+      execute: async (_, args) => {
+        promptPath = args[args.indexOf("--prompt-file") + 1];
+        throw error;
+      },
+    }),
+    (e) =>
+      e.code === "MUSE_PROVIDER_FAILED" &&
+      !e.message.includes("private provider detail"),
+  );
+  const { existsSync } = await import("node:fs");
+  assert.ok(!existsSync(promptPath));
+});

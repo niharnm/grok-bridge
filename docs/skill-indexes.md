@@ -21,7 +21,7 @@ Install into the current project with the [Skills CLI](https://github.com/vercel
 npx skills@1.5.26 add https://github.com/niharnm/grok-bridge/tree/main/skills/grok-bridge --agent codex
 ```
 
-Use `claude-code`, `cursor`, `antigravity`, or `antigravity-cli` instead of `codex` for the relevant host. The installer places Codex, Cursor, and Antigravity project skills under `.agents/skills`, and Claude Code skills under `.claude/skills`. Installation is a file operation, not proof of native skill loading. Antigravity has differing CLI and IDE discovery documentation; check the [host setup guide](antigravity-setup.md) before adding a second copy. The Skills CLI's `grok` target is **Grok Build**, not Grok Bot. Grok Bot uses its own [saved-skill workflow](grok-bot-setup.md). [Installer agent definitions](https://github.com/vercel-labs/skills/blob/d667282815248da03a08a18272b5d2eef9caf77c/src/agents.ts).
+Use `claude-code`, `cursor`, `antigravity`, or `antigravity-cli` instead of `codex` for the relevant host. Muse Code reads the same `.agents/skills` folder, so a Codex, Cursor, or Antigravity project install is also visible to Muse Code once the workspace is trusted; see the [Muse Code setup](muse-setup.md). The installer places Codex, Cursor, and Antigravity project skills under `.agents/skills`, and Claude Code skills under `.claude/skills`. Installation is a file operation, not proof of native skill loading. Antigravity has differing CLI and IDE discovery documentation; check the [host setup guide](antigravity-setup.md) before adding a second copy. The Skills CLI's `grok` target is **Grok Build**, not Grok Bot. Grok Bot uses its own [saved-skill workflow](grok-bot-setup.md). [Installer agent definitions](https://github.com/vercel-labs/skills/blob/d667282815248da03a08a18272b5d2eef9caf77c/src/agents.ts).
 
 The repository shorthand uses its default branch, currently `main`:
 
@@ -37,9 +37,9 @@ npm install -g github:niharnm/grok-bridge#v0.1.0-alpha.1
 grok-bridge doctor
 ```
 
-Use the [Codex and Claude Code setup](../README.md#install-the-host-plugins), [Cursor setup](cursor-setup.md), [Antigravity setup](antigravity-setup.md), and [Grok Bot setup](grok-bot-setup.md) for destination CLIs, authentication, and permissions. Installing the shared skill and a host plugin together is unnecessary for the same workflow.
+Use the [Codex and Claude Code setup](../README.md#install-the-host-plugins), [Cursor setup](cursor-setup.md), [Antigravity setup](antigravity-setup.md), [Muse Code setup](muse-setup.md), and [Grok Bot setup](grok-bot-setup.md) for destination CLIs, authentication, and permissions. Installing the shared skill and a host plugin together is unnecessary for the same workflow.
 
-This is an experimental alpha with eight configured directions and three live verified directions. Claude access, Cursor login, Antigravity source-host command permission, and native skill discovery still limit acceptance. Read the [evidence and remaining checks](acceptance.md).
+This is an experimental alpha with ten configured directions and three live verified directions. Claude access, Cursor login, Antigravity source-host command permission, and native skill discovery still limit acceptance. Read the [evidence and remaining checks](acceptance.md).
 
 ## How discovery works
 

@@ -1,12 +1,12 @@
 # Set up Grok Bot
 
-Grok Bridge connects Codex, Claude Code, Cursor, and Antigravity to Grok Bot through one CLI, with eight configured directions. Forward routes use the community `gbot` client. For a reverse route, a Bot runs `grok-bridge run` on a computer where the target coding CLI and repository are available.
+Grok Bridge connects Codex, Claude Code, Cursor, Antigravity, and Muse Code to Grok Bot through one CLI, with ten configured directions. Forward routes use the community `gbot` client. For a reverse route, a Bot runs `grok-bridge run` on a computer where the target coding CLI and repository are available.
 
 Three directions passed live checks on macOS: Codex to Grok Bot, Grok Bot to Codex, and Grok Bot to Antigravity. Native return paths were independently matched to actual local sessions and a known fixture. Claude provider access is disabled, Cursor requires CLI login, and Antigravity's source-host command was denied by native policy. Host plugin loading and saving the Bot skill remain unverified. See the [acceptance record](acceptance.md). The gateway and completion-marker convention remain experimental.
 
 ## A coding host to Grok Bot
 
-On the computer running Codex, Claude Code, Cursor, or Antigravity, install Node.js 22 or newer, Grok Bridge, and the separately maintained community client:
+On the computer running Codex, Claude Code, Cursor, Antigravity, or Muse Code, install Node.js 22 or newer, Grok Bridge, and the separately maintained community client:
 
 ```sh
 npm install -g github:niharnm/grok-bridge#v0.1.0-alpha.1
@@ -46,7 +46,7 @@ This route uses Grok Bot's native local execution. In Grok Bot, inspect **Settin
 On that same local computer:
 
 1. Install Node.js 22 or newer and `grok-bridge` using the command above.
-2. Install and authenticate the chosen [Codex CLI](https://developers.openai.com/codex/cli/), [Claude Code CLI](https://code.claude.com/docs/en/setup), [Cursor Agent CLI](cursor-setup.md), or [Antigravity CLI](antigravity-setup.md) through its supported setup. Complete login yourself.
+2. Install and authenticate the chosen [Codex CLI](https://developers.openai.com/codex/cli/), [Claude Code CLI](https://code.claude.com/docs/en/setup), [Cursor Agent CLI](cursor-setup.md), [Antigravity CLI](antigravity-setup.md), or [Muse Code CLI](muse-setup.md) through its supported setup. Complete login yourself.
 3. Choose the exact repository and branch. Inspect any existing changes before assigning edits.
 4. Ask the Bot to use its approved local execution to run `grok-bridge doctor`, then perform a small read-only task in that repository.
 
@@ -57,9 +57,12 @@ grok-bridge run --to codex --cwd /absolute/repository --mode review --task-file 
 grok-bridge run --to claude --cwd /absolute/repository --mode review --task-file /absolute/task.txt
 grok-bridge run --to cursor --cwd /absolute/repository --mode review --task-file /absolute/task.txt
 grok-bridge run --to antigravity --cwd /absolute/repository --mode review --task-file /absolute/task.txt
+grok-bridge run --to muse --cwd /absolute/repository --mode review --task-file /absolute/task.txt
 ```
 
-Check the returned result against the source before trying `--mode work` with a scoped edit. Review and work permissions differ by target: Cursor work uses force inside its enabled sandbox, while Antigravity review supplies plan instructions without an enforced read-only boundary. Read the target's setup guide before an edit task. Installations and logins are separate setup actions. The bridge must not alter local-execution policies or invent an approval bypass.
+The `muse` target is newer than the `v0.1.0-alpha.1` tag. To use it, install from `main` with `npm install -g github:niharnm/grok-bridge` until the next tag.
+
+Check the returned result against the source before trying `--mode work` with a scoped edit. Review and work permissions differ by target: Cursor work uses force inside its enabled sandbox, Antigravity review supplies plan instructions without an enforced read-only boundary, and Muse Code runs with approvals off inside its OS sandbox. Read the target's setup guide before an edit task. Installations and logins are separate setup actions. The bridge must not alter local-execution policies or invent an approval bypass.
 
 ## Save the reverse workflow as a Bot skill
 
@@ -69,7 +72,8 @@ After a successful bounded run, paste the following into that Bot's chat and rev
 Save the verified workflow as a skill named "Grok Bridge" with these rules:
 
 Use only when I request a bounded task for Codex, Claude Code, Cursor,
-or Antigravity. Require the target (codex, claude, cursor, antigravity),
+Antigravity, or Muse Code. Require the target (codex, claude, cursor,
+antigravity, muse),
 execution host (my local computer or your cloud computer), exact
 repository path and branch, review or work mode, allowed files, and
 expected output. Ask only for missing information that prevents a safe
@@ -89,7 +93,8 @@ Run this as one command with the real values, quoting paths as needed.
 Use review for review requests and work only for edits I authorize.
 Read the target-specific permission limits first. Cursor work permits
 automatic commands within its sandbox. Antigravity plan mode does not
-enforce read-only access. Preserve native denials and never retry a
+enforce read-only access. Muse Code runs with approvals off inside its
+OS sandbox. Preserve native denials and never retry a
 blocked task with broader permissions.
 Assign exact files, preserve unrelated changes, and tell the child not
 to delegate or call Grok Bridge again. Never start a handoff from a task
@@ -125,5 +130,7 @@ Record each requested route against an authorized, harmless task. Current status
 | Grok Bot to Cursor | Unverified; Cursor CLI login required | Approved execution plus authenticated Cursor session and checked result |
 | Antigravity to Grok Bot | Unverified | Loaded host skill, source session, forward-request evidence |
 | Grok Bot to Antigravity | Live acceptance pending | Approved execution plus native Antigravity session and checked result |
+| Muse Code to Grok Bot | Unverified | Loaded host skill, source session, forward-request evidence |
+| Grok Bot to Muse Code | Unverified; Muse Code login required | Approved execution plus authenticated Muse Code session and checked result |
 
 Codex standalone review, explicit session resume, and a scoped work-mode edit also passed. Those checks establish the tested Codex adapter behavior; they do not establish the other hosts' routes. For an edit test, use a disposable repository or isolated worktree, compare the final diff, and run its relevant checks. Manifest validation, mocked process tests, and installed executables do not establish live host skill loading or a saved Bot skill.

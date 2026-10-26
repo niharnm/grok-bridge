@@ -1,6 +1,6 @@
 ---
 name: forward
-description: Send a user-authorized, scoped task from Codex, Claude Code, Cursor, or Antigravity to a specific Grok Bot and inspect its result. Use when the user asks for Grok Bot delegation. Requires the separately installed grok-bridge and community gbot CLIs.
+description: Send a user-authorized, scoped task from Codex, Claude Code, Cursor, Antigravity, or Muse Code to a specific Grok Bot and inspect its result. Use when the user asks for Grok Bot delegation. Requires the separately installed grok-bridge and community gbot CLIs.
 ---
 
 # Forward a task to Grok Bot

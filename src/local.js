@@ -1,3 +1,6 @@
+import { mkdtemp, rm, writeFile } from "node:fs/promises";
+import { tmpdir } from "node:os";
+import { join } from "node:path";
 import { runProcess } from "./process.js";
 import { cursorArguments, parseCursor } from "./cursor.js";
 import {
@@ -5,12 +8,21 @@ import {
   antigravityInput,
   parseAntigravity,
 } from "./antigravity.js";
+import { museArguments, parseMuse } from "./muse.js";
 
 export const localBinaries = Object.freeze({
   codex: "codex",
   claude: "claude",
   cursor: "agent",
   antigravity: "agy",
+  muse: "muse",
+});
+
+// Muse Code's launcher self-updates and can start an interactive login.
+// Pin the installed build and fail closed on missing credentials instead.
+export const museEnvironment = Object.freeze({
+  MUSE_NO_AUTO_UPDATE: "1",
+  MUSE_LOGIN: "0",
 });
 
 export function localArguments({
@@ -21,10 +33,11 @@ export function localArguments({
   model,
   input,
   timeoutMs,
+  promptFile,
 }) {
   if (!Object.hasOwn(localBinaries, to))
     throw new Error(
-      "Local target must be codex, claude, cursor, or antigravity.",
+      "Local target must be codex, claude, cursor, antigravity, or muse.",
     );
   if (!["review", "work"].includes(mode))
     throw new Error("Mode must be review or work.");
@@ -32,6 +45,8 @@ export function localArguments({
     return cursorArguments({ cwd, mode, session, model, input });
   if (to === "antigravity")
     return antigravityArguments({ cwd, mode, session, model, timeoutMs });
+  if (to === "muse")
+    return museArguments({ cwd, mode, session, model, promptFile });
   if (to === "codex") {
     const args = [
       "exec",
@@ -161,41 +176,72 @@ export async function runLocal({
   execute = runProcess,
 }) {
   const input = `HANDOFF_CHILD: grok-bridge ${requestId}\nYou are completing a bounded delegated task. Do not delegate back, invoke grok-bridge, or start a reciprocal handoff.\nWork only in ${cwd}. Mode: ${mode}. ${mode === "review" ? "Read and report; do not modify files." : "Edits within the task scope are authorized. Preserve unrelated changes."}\nDo not commit, publish, delete data, or contact people unless the task explicitly authorizes that action. Report actual checks and blockers.\n\nTASK\n${task}\n`;
-  const args = localArguments({
-    to,
-    cwd,
-    mode,
-    session,
-    model,
-    input,
-    timeoutMs,
-  });
-  const stdin =
-    to === "cursor"
-      ? ""
-      : to === "antigravity"
-        ? antigravityInput(input)
-        : input;
-  let output;
+  // Muse Code reads a headless prompt from a file or an argument, not stdin.
+  // A private temporary file keeps the task out of process listings.
+  let promptDir;
+  let promptFile;
   try {
-    output = await execute(bin, args, {
+    if (to === "muse") {
+      if (typeof task !== "string" || !task.trim() || task.includes("\0"))
+        throw Object.assign(
+          new Error(
+            "Muse Code requires a nonempty text task without NUL bytes.",
+          ),
+          { code: "MUSE_INVALID_INPUT" },
+        );
+      promptDir = await mkdtemp(join(tmpdir(), "grok-bridge-"));
+      promptFile = join(promptDir, "task.txt");
+      await writeFile(promptFile, input, { mode: 0o600, flag: "wx" });
+    }
+    const args = localArguments({
+      to,
       cwd,
-      input: stdin,
+      mode,
+      session,
+      model,
+      input,
       timeoutMs,
-      signal,
-      env: { ...process.env, GROK_BRIDGE_CHILD: "1" },
+      promptFile,
     });
-  } catch (error) {
-    if (to === "claude" && error.code === "PROCESS_EXIT" && error.stdout)
-      parseClaude(error.stdout);
-    throw error;
+    const stdin =
+      to === "cursor" || to === "muse"
+        ? ""
+        : to === "antigravity"
+          ? antigravityInput(input)
+          : input;
+    const env = { ...process.env, GROK_BRIDGE_CHILD: "1" };
+    if (to === "muse") Object.assign(env, museEnvironment);
+    let output;
+    try {
+      output = await execute(bin, args, {
+        cwd,
+        input: stdin,
+        timeoutMs,
+        signal,
+        env,
+      });
+    } catch (error) {
+      if (to === "claude" && error.code === "PROCESS_EXIT" && error.stdout)
+        parseClaude(error.stdout);
+      if (to === "muse" && error.code === "PROCESS_EXIT" && error.stdout) {
+        try {
+          parseMuse(error.stdout);
+        } catch (parsed) {
+          if (parsed.code === "MUSE_PROVIDER_FAILED") throw parsed;
+        }
+      }
+      throw error;
+    }
+    const parsers = {
+      codex: parseCodex,
+      claude: parseClaude,
+      cursor: parseCursor,
+      antigravity: parseAntigravity,
+      muse: parseMuse,
+    };
+    const parsed = parsers[to](output.stdout);
+    return { ...parsed, provider: to, requestId, cwd, mode };
+  } finally {
+    if (promptDir) await rm(promptDir, { recursive: true, force: true });
   }
-  const parsers = {
-    codex: parseCodex,
-    claude: parseClaude,
-    cursor: parseCursor,
-    antigravity: parseAntigravity,
-  };
-  const parsed = parsers[to](output.stdout);
-  return { ...parsed, provider: to, requestId, cwd, mode };
 }

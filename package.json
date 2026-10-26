@@ -1,7 +1,7 @@
 {
   "name": "grok-bridge",
   "version": "0.1.0-alpha.1",
-  "description": "Task handoffs between Grok Bot, Codex, Claude Code, Cursor, and Antigravity. One CLI.",
+  "description": "Task handoffs between Grok Bot, Codex, Claude Code, Cursor, Antigravity, and Muse Code. One CLI.",
   "type": "module",
   "bin": {
     "grok-bridge": "bin/grok-bridge.js"
@@ -49,6 +49,7 @@
     "handoff",
     "cli",
     "cursor",
-    "antigravity"
+    "antigravity",
+    "muse-code"
   ]
 }

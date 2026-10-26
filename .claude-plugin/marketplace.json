@@ -5,7 +5,7 @@
     "url": "https://github.com/niharnm"
   },
   "metadata": {
-    "description": "Shared skills for task handoffs across Grok Bot, Codex, Claude Code, Cursor, and Antigravity.",
+    "description": "Shared skills for task handoffs across Grok Bot, Codex, Claude Code, Cursor, Antigravity, and Muse Code.",
     "version": "0.1.0-alpha.1"
   },
   "plugins": [
@@ -23,7 +23,8 @@
         "codex",
         "claude-code",
         "cursor",
-        "antigravity"
+        "antigravity",
+        "muse-code"
       ]
     }
   ]

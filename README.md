@@ -1,6 +1,6 @@
 # Grok Bridge
 
-**Grok Bot ↔ Codex, Claude Code, Cursor, and Antigravity. One CLI.**
+**Grok Bot ↔ Codex, Claude Code, Cursor, Antigravity, and Muse Code. One CLI.**
 
 [![CI](https://github.com/niharnm/grok-bridge/actions/workflows/ci.yml/badge.svg)](https://github.com/niharnm/grok-bridge/actions/workflows/ci.yml)
 [![MIT license](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
@@ -8,7 +8,7 @@
 
 [Website](https://niharnm.github.io/grok-bridge/) · [Shared skill install](docs/skill-indexes.md) · [skills.sh pack](https://skills.sh/p/o02Pja39oijRhbnx) · [Release](https://github.com/niharnm/grok-bridge/releases/tag/v0.1.0-alpha.1)
 
-Hand a bounded task to another tool, get a result, and continue where you started. Grok Bridge packages a small shared runner, Codex, Claude Code, and Cursor plugins plus Antigravity skills, and a Grok Bot setup workflow. No runtime npm dependencies, separate bridge account, or custom remote-command server.
+Hand a bounded task to another tool, get a result, and continue where you started. Grok Bridge packages a small shared runner, Codex, Claude Code, and Cursor plugins plus Antigravity and Muse Code skills, and a Grok Bot setup workflow. No runtime npm dependencies, separate bridge account, or custom remote-command server.
 
 **Experimental alpha.** Three directions have live evidence: Codex to Grok Bot, Grok Bot to Codex, and Grok Bot to Antigravity. Native Codex and Antigravity reads and edits also passed. Claude provider access, Cursor login, Antigravity source-host command permissions, and actual host skill discovery still limit acceptance. See the [acceptance record](docs/acceptance.md).
 
@@ -22,6 +22,8 @@ Hand a bounded task to another tool, get a result, and continue where you starte
 | Grok Bot | Cursor | Bot calls `run --to cursor` through approved execution |
 | Antigravity | Grok Bot | Its `grok-bridge` skill calls the shared CLI |
 | Grok Bot | Antigravity | Bot calls `run --to antigravity` through approved execution |
+| Muse Code | Grok Bot | Its `grok-bridge` skill calls the shared CLI |
+| Grok Bot | Muse Code | Bot calls `run --to muse` through approved execution |
 
 Grok Bot's cloud computer is separate from your laptop. The reverse routes use its native local execution when available and approved. Running on the cloud computer instead requires the CLI, login, and repository on that computer. This project does not change that policy or copy your credentials.
 
@@ -58,13 +60,16 @@ grok-bridge run --to codex --cwd /absolute/repo --mode review --task-file task.t
 grok-bridge run --to claude --cwd /absolute/repo --mode work --task-file task.txt
 grok-bridge run --to cursor --cwd /absolute/repo --mode review --task-file task.txt
 grok-bridge run --to antigravity --cwd /absolute/repo --mode review --task-file task.txt
+grok-bridge run --to muse --cwd /absolute/repo --mode review --task-file task.txt
 ```
+
+The `muse` target is newer than the `v0.1.0-alpha.1` tag. To use it, install from `main` with `npm install -g github:niharnm/grok-bridge` until the next tag.
 
 `review` is the default. `work` explicitly permits edits within the task's scope. Supply `--model` only to select a particular destination model; otherwise its configured default applies. To continue a returned native session, use `--session SESSION_UUID` with the same target and repository. Nothing silently selects the most recent session.
 
 ## Install the host plugins
 
-For a single shared Agent Skill across Codex, Claude Code, Cursor, and Antigravity, use the [Skills CLI installation](docs/skill-indexes.md). The canonical `skills/grok-bridge` entrypoint teaches the same CLI. Choose the shared skill or the host plugin for a given project.
+For a single shared Agent Skill across Codex, Claude Code, Cursor, Antigravity, and Muse Code, use the [Skills CLI installation](docs/skill-indexes.md). The canonical `skills/grok-bridge` entrypoint teaches the same CLI. Choose the shared skill or the host plugin for a given project.
 
 For **Claude Code**, run in its interactive prompt:
 
@@ -86,6 +91,8 @@ Install Grok Bridge from the plugin browser and start a new session. Ask it to u
 For **Cursor**, follow the [native plugin setup](docs/cursor-setup.md). The official `agent` CLI is the reverse destination. Cursor IDE access is not inferred from the Grok gateway.
 
 For **Antigravity**, follow the [CLI and skill setup](docs/antigravity-setup.md). It uses the actual `agy` CLI, not the separate Gemini CLI.
+
+For **Muse Code**, follow the [CLI and skill setup](docs/muse-setup.md). It uses Meta's `muse` CLI, not the separate Muse desktop or web app.
 
 For **Grok Bot**, follow the [setup guide](docs/grok-bot-setup.md), verify a small local execution, then save the documented workflow as a Bot skill. Grok Bot and Grok Build are different products; this is not a `.grok` filesystem installer.
 
@@ -118,9 +125,9 @@ Use `--task-file -` to pipe a task through stdin. Tasks are limited to 64 KiB. T
 
 Codex uses its native read-only or workspace-write sandbox with noninteractive approvals disabled. Claude review exposes Read, Glob, and Grep; work also exposes Edit, Write, and Bash with `acceptEdits`. Claude child MCP servers, skills, and browser integration are disabled. Native user/project settings and hooks can still apply, so review mode is not a standalone operating-system sandbox for Claude.
 
-Cursor review uses Ask mode with its sandbox enabled. Cursor work adds `--force`, which automatically allows commands unless explicitly denied; its sandbox remains enabled. Antigravity review requests plan mode, which is not a hard read-only boundary. Antigravity work requests `accept-edits`, with its sandbox enabled and without bypassing permissions. Neither adapter changes workspace trust or account policy.
+Cursor review uses Ask mode with its sandbox enabled. Cursor work adds `--force`, which automatically allows commands unless explicitly denied; its sandbox remains enabled. Antigravity review requests plan mode, which is not a hard read-only boundary. Antigravity work requests `accept-edits`, with its sandbox enabled and without bypassing permissions. Neither adapter changes workspace trust or account policy. Muse Code review adds `--disable-write --disable-shell`. Both Muse modes use `--approval-mode never` with Muse's OS sandbox kept on; the bridge never adds `--yolo` or disables the sandbox.
 
-The bridge stores no credentials or transcripts. Destination applications retain their own sessions. Task files and command output remain under your control. The `gbot` and Cursor CLIs receive prompts as command arguments, so those prompts can be visible to local process inspection. Codex, Claude, and Antigravity receive task content through stdin. Send only the context the task needs. See [security and data boundaries](SECURITY.md).
+The bridge stores no credentials or transcripts. Destination applications retain their own sessions. Task files and command output remain under your control. The `gbot` and Cursor CLIs receive prompts as command arguments, so those prompts can be visible to local process inspection. Codex, Claude, and Antigravity receive task content through stdin. Muse Code receives it through a private temporary file that is deleted after the run. Send only the context the task needs. See [security and data boundaries](SECURITY.md).
 
 The local child receives `GROK_BRIDGE_CHILD=1`; recursive bridge calls fail. Host skills and Grok prompts also instruct children to return once without reciprocal loops. Prompt instructions are not a security boundary against a deliberately disobedient destination.
 

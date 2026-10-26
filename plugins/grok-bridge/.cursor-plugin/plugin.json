@@ -1,7 +1,7 @@
 {
   "name": "grok-bridge",
   "version": "0.1.0-alpha.1",
-  "description": "Bounded task handoffs between Grok Bot, Codex, Claude Code, Cursor, and Antigravity through one CLI.",
+  "description": "Bounded task handoffs between Grok Bot, Codex, Claude Code, Cursor, Antigravity, and Muse Code through one CLI.",
   "author": {
     "name": "Nihar"
   },
@@ -14,6 +14,7 @@
     "claude-code",
     "cursor",
     "antigravity",
+    "muse-code",
     "delegation"
   ],
   "skills": "./skills/"
