@@ -33,7 +33,7 @@ npx skills@1.5.26 add niharnm/grok-bridge --skill grok-bridge --agent codex
 The bridge itself remains a separate pinned install:
 
 ```sh
-npm install -g github:niharnm/grok-bridge#v0.1.0-alpha.2
+npm install -g https://github.com/niharnm/grok-bridge/releases/download/v0.1.0-alpha.2/grok-bridge-0.1.0-alpha.2.tgz
 grok-bridge doctor
 ```
 

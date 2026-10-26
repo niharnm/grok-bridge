@@ -32,11 +32,11 @@ Grok Bot's cloud computer is separate from your laptop. The reverse routes use i
 Install [Node.js 22 or newer](https://nodejs.org/en/download), then install from this repository:
 
 ```sh
-npm install -g github:niharnm/grok-bridge#v0.1.0-alpha.2
+npm install -g https://github.com/niharnm/grok-bridge/releases/download/v0.1.0-alpha.2/grok-bridge-0.1.0-alpha.2.tgz
 grok-bridge doctor
 ```
 
-This is a GitHub install, not an npm registry release. `doctor` checks executable availability only. Each destination needs its own working login. Existing account plans and usage limits apply.
+This installs the release package attached to the GitHub release, not an npm registry release. Avoid `npm install -g github:niharnm/grok-bridge#v0.1.0-alpha.2` with npm 11: that tag still carries a build script that makes npm link the command to a temporary folder it then deletes, so `grok-bridge` stops working. Releases after alpha.2 install from either form. `doctor` checks executable availability only. Each destination needs its own working login. Existing account plans and usage limits apply.
 
 To reach Grok Bot, also install the separately maintained client and sign in to the Grok Bot desktop app:
 

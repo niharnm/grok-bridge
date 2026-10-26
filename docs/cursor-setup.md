@@ -14,7 +14,7 @@ The forward gateway is experimental. This alpha has no verified authenticated Cu
 Install Node.js 22 or newer and the tagged CLI:
 
 ```sh
-npm install -g github:niharnm/grok-bridge#v0.1.0-alpha.2
+npm install -g https://github.com/niharnm/grok-bridge/releases/download/v0.1.0-alpha.2/grok-bridge-0.1.0-alpha.2.tgz
 ```
 
 Use the tag for both the runtime and plugin. The repository's default branch can differ from the alpha's implementation.

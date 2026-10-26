@@ -5,7 +5,7 @@ description: Delegate a bounded task to Codex, Claude Code, Cursor, Antigravity,
 
 # Run a coding CLI
 
-Use the separately installed `grok-bridge` executable on PATH. Install this alpha with `npm install -g github:niharnm/grok-bridge#v0.1.0-alpha.2`. Do not walk out of the plugin cache to locate runtime scripts. Installation instructions are at [Grok Bridge](https://github.com/niharnm/grok-bridge/tree/v0.1.0-alpha.2).
+Use the separately installed `grok-bridge` executable on PATH. Install this alpha with `npm install -g https://github.com/niharnm/grok-bridge/releases/download/v0.1.0-alpha.2/grok-bridge-0.1.0-alpha.2.tgz`. Do not walk out of the plugin cache to locate runtime scripts. Installation instructions are at [Grok Bridge](https://github.com/niharnm/grok-bridge/tree/v0.1.0-alpha.2).
 
 ## Check host and scope
 

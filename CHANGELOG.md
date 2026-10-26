@@ -1,5 +1,10 @@
 # Changelog
 
+## Unreleased
+
+- Removed the `prepack` script. With npm 11 it made `npm install -g github:niharnm/grok-bridge#TAG` link the command to a deleted temporary clone, which broke every GitHub install since alpha.1. A test now keeps install-time build scripts out of the package.
+- Install instructions use the release package URL, which works for alpha.2 today.
+
 ## 0.1.0-alpha.2
 
 - Muse Code destination: `run --to muse` drives Meta's `muse exec --json` with review and work modes, explicit session continuation, and a private prompt file.

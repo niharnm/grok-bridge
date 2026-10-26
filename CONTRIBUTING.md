@@ -8,6 +8,8 @@ npm test
 npm pack --dry-run
 ```
 
+Do not add `prepare`, `prepack`, or install-time scripts to `package.json`. With npm 11 they break global installs from GitHub; `test/package.test.js` enforces this. Run the checks above yourself before tagging a release.
+
 Tests use Node's built-in test runner and do not require provider credentials. Separate fixture tests from live provider evidence. Never commit account files, real private transcripts, Bot account IDs, or tokens. Synthetic fixtures should be clearly identified as such.
 
 For adapter changes, verify argument construction, deadlines, cancellation, error handling, and terminal-result detection. Grok changes must also test user echoes, unrelated request IDs, malformed schemas, and ambiguous sends. Do not add automatic retries around non-idempotent sends.

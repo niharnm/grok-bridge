@@ -9,7 +9,7 @@ The adapter follows Antigravity CLI 1.2.0 help and Google's current protocol doc
 Install Node.js 22 or newer, then install the tagged runtime and clone the same tag for the skill:
 
 ```sh
-npm install -g github:niharnm/grok-bridge#v0.1.0-alpha.2
+npm install -g https://github.com/niharnm/grok-bridge/releases/download/v0.1.0-alpha.2/grok-bridge-0.1.0-alpha.2.tgz
 git clone --branch v0.1.0-alpha.2 --depth 1 https://github.com/niharnm/grok-bridge.git grok-bridge-alpha
 ```
 
