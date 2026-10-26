@@ -5,7 +5,7 @@ description: Send a user-authorized, scoped task from Codex, Claude Code, Cursor
 
 # Forward a task to Grok Bot
 
-Use the `grok-bridge` executable on PATH. The runtime is installed separately with `npm install -g github:niharnm/grok-bridge#v0.1.0-alpha.1`. Do not resolve runtime scripts by walking out of this plugin directory; hosts may cache the plugin separately from the repository.
+Use the `grok-bridge` executable on PATH. The runtime is installed separately with `npm install -g github:niharnm/grok-bridge#v0.1.0-alpha.2`. Do not resolve runtime scripts by walking out of this plugin directory; hosts may cache the plugin separately from the repository.
 
 ## Bound the task
 

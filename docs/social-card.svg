@@ -9,7 +9,7 @@
   <title id="title">Grok Bridge. Task handoffs. One CLI.</title>
   <desc id="description">
     Independent open-source experimental alpha for configured task handoffs
-    between Grok Bot, Codex, Claude Code, Cursor, and Antigravity.
+    between Grok Bot, Codex, Claude Code, Cursor, Antigravity, and Muse Code.
   </desc>
   <rect width="1200" height="630" fill="#f6f7f1" />
   <g transform="translate(64 64) scale(.625)">
@@ -99,7 +99,7 @@
     CONFIGURED HANDOFFS
   </text>
   <path
-    d="M784 222H1103M784 278H1103M784 334H1103M784 390H1103M784 446H1103"
+    d="M784 222H1103M784 268H1103M784 314H1103M784 360H1103M784 406H1103M784 452H1103"
     stroke="#cbd2c6"
   />
   <g
@@ -108,10 +108,11 @@
     font-size="23"
     font-style="italic"
   >
-    <text x="784" y="258">Grok Bot</text>
-    <text x="784" y="314">Grok Bot</text>
-    <text x="784" y="370">Grok Bot</text>
-    <text x="784" y="426">Grok Bot</text>
+    <text x="784" y="252">Grok Bot</text>
+    <text x="784" y="298">Grok Bot</text>
+    <text x="784" y="344">Grok Bot</text>
+    <text x="784" y="390">Grok Bot</text>
+    <text x="784" y="436">Grok Bot</text>
   </g>
   <g
     fill="none"
@@ -120,10 +121,11 @@
     stroke-linecap="square"
     stroke-linejoin="miter"
   >
-    <path d="M902 248h29m-24-5-5 5 5 5m19-10 5 5-5 5" />
-    <path d="M902 304h29m-24-5-5 5 5 5m19-10 5 5-5 5" />
-    <path d="M902 360h29m-24-5-5 5 5 5m19-10 5 5-5 5" />
-    <path d="M902 416h29m-24-5-5 5 5 5m19-10 5 5-5 5" />
+    <path d="M902 242h29m-24-5-5 5 5 5m19-10 5 5-5 5" />
+    <path d="M902 288h29m-24-5-5 5 5 5m19-10 5 5-5 5" />
+    <path d="M902 334h29m-24-5-5 5 5 5m19-10 5 5-5 5" />
+    <path d="M902 380h29m-24-5-5 5 5 5m19-10 5 5-5 5" />
+    <path d="M902 426h29m-24-5-5 5 5 5m19-10 5 5-5 5" />
   </g>
   <g
     fill="#183229"
@@ -131,10 +133,11 @@
     font-size="22"
     font-weight="500"
   >
-    <text x="952" y="258">Codex</text>
-    <text x="952" y="314">Claude Code</text>
-    <text x="952" y="370">Cursor</text>
-    <text x="952" y="426">Antigravity</text>
+    <text x="952" y="252">Codex</text>
+    <text x="952" y="298">Claude Code</text>
+    <text x="952" y="344">Cursor</text>
+    <text x="952" y="390">Antigravity</text>
+    <text x="952" y="436">Muse Code</text>
   </g>
 
   <path d="M64 516H1136" stroke="#cbd2c6" />

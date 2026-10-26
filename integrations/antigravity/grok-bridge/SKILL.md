@@ -5,7 +5,7 @@ description: Use Grok Bridge from Antigravity to send a user-authorized task to 
 
 # Grok Bridge for Antigravity
 
-Invoke the shared `grok-bridge` CLI on PATH. Install the alpha separately with `npm install -g github:niharnm/grok-bridge#v0.1.0-alpha.1`. This skill contains no runtime and must not search outside its installed directory for scripts. See the [tagged setup guide](https://github.com/niharnm/grok-bridge/blob/v0.1.0-alpha.1/docs/antigravity-setup.md) for host-specific installation.
+Invoke the shared `grok-bridge` CLI on PATH. Install the alpha separately with `npm install -g github:niharnm/grok-bridge#v0.1.0-alpha.2`. This skill contains no runtime and must not search outside its installed directory for scripts. See the [tagged setup guide](https://github.com/niharnm/grok-bridge/blob/v0.1.0-alpha.2/docs/antigravity-setup.md) for host-specific installation.
 
 ## Bound every handoff
 
