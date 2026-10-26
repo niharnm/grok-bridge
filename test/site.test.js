@@ -48,7 +48,7 @@ test("landing copy action writes the exact published installation command", asyn
   await ui.click();
   assert.equal(
     written,
-    "npm install -g github:niharnm/grok-bridge#v0.1.0-alpha.2",
+    "npm install -g https://github.com/niharnm/grok-bridge/releases/download/v0.1.0-alpha.2/grok-bridge-0.1.0-alpha.2.tgz",
   );
   assert.equal(ui.status.textContent, "Installation command copied.");
 });

@@ -5,7 +5,7 @@ description: Use Grok Bridge from Muse Code to send a user-authorized task to a 
 
 # Grok Bridge for Muse Code
 
-Invoke the shared `grok-bridge` CLI on PATH. Install the runtime separately with `npm install -g github:niharnm/grok-bridge#v0.1.0-alpha.2`. This skill contains no runtime and must not search outside its installed directory for scripts. See the [Muse Code setup guide](https://github.com/niharnm/grok-bridge/blob/v0.1.0-alpha.2/docs/muse-setup.md) for host-specific installation.
+Invoke the shared `grok-bridge` CLI on PATH. Install the runtime separately with `npm install -g https://github.com/niharnm/grok-bridge/releases/download/v0.1.0-alpha.2/grok-bridge-0.1.0-alpha.2.tgz`. This skill contains no runtime and must not search outside its installed directory for scripts. See the [Muse Code setup guide](https://github.com/niharnm/grok-bridge/blob/v0.1.0-alpha.2/docs/muse-setup.md) for host-specific installation.
 
 ## Bound every handoff
 

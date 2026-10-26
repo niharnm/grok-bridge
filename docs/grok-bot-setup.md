@@ -9,7 +9,7 @@ Three directions passed live checks on macOS: Codex to Grok Bot, Grok Bot to Cod
 On the computer running Codex, Claude Code, Cursor, Antigravity, or Muse Code, install Node.js 22 or newer, Grok Bridge, and the separately maintained community client:
 
 ```sh
-npm install -g github:niharnm/grok-bridge#v0.1.0-alpha.2
+npm install -g https://github.com/niharnm/grok-bridge/releases/download/v0.1.0-alpha.2/grok-bridge-0.1.0-alpha.2.tgz
 npm install -g grok-bot-cli@0.2.3
 grok-bridge doctor
 ```

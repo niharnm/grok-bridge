@@ -5,7 +5,7 @@ description: Delegate a user-authorized task between Grok Bot and Codex, Claude 
 
 # Grok Bridge
 
-Use the installed `grok-bridge` executable. This skill contains instructions only. The runtime is the experimental `github:niharnm/grok-bridge#v0.1.0-alpha.2` package, installed separately. Preserve the destination's configured model unless the user specifies `--model MODEL`.
+Use the installed `grok-bridge` executable. This skill contains instructions only. The runtime is the experimental release package at `https://github.com/niharnm/grok-bridge/releases/download/v0.1.0-alpha.2/grok-bridge-0.1.0-alpha.2.tgz`, installed separately. Preserve the destination's configured model unless the user specifies `--model MODEL`.
 
 Read the relevant setup guide when a prerequisite is missing: [Codex and Claude Code](https://github.com/niharnm/grok-bridge/blob/v0.1.0-alpha.2/README.md#install-the-host-plugins), [Cursor](https://github.com/niharnm/grok-bridge/blob/v0.1.0-alpha.2/docs/cursor-setup.md), [Antigravity](https://github.com/niharnm/grok-bridge/blob/v0.1.0-alpha.2/docs/antigravity-setup.md), [Muse Code](https://github.com/niharnm/grok-bridge/blob/v0.1.0-alpha.2/docs/muse-setup.md), or [Grok Bot](https://github.com/niharnm/grok-bridge/blob/v0.1.0-alpha.2/docs/grok-bot-setup.md). Installing this skill does not install executables, authenticate accounts, or grant command permissions. `grok-bridge doctor` checks executable availability only.
 
