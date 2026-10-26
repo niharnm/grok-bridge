@@ -56,6 +56,19 @@ Antigravity review requests plan mode. It is not an enforced filesystem write lo
 
 All four CI jobs passed on Node.js 22/24 across macOS/Linux for [implementation commit 3ef2c14](https://github.com/niharnm/grok-bridge/actions/runs/34779977379), including check, tests and package creation. Consult the [workflow runs](https://github.com/niharnm/grok-bridge/actions/workflows/ci.yml) for later revisions. The packed artifact contained 27 intended runtime, plugin, skill, and documentation files, with no test-account data. An offline install into a fresh task-local prefix passed `--version` and `--help`. A fresh installation from public GitHub commit `3ef2c14` also passed `--version` and `--help`. The release notes record the tagged installation check.
 
+## Muse Code destination
+
+Added October 26, 2026, after the alpha tag. The Muse Code routes are configured but have no live exchange yet. Muse Code was not installed on the development host, and no Muse login was used.
+
+| Check | Observed result |
+| --- | --- |
+| Argument construction | Matches `muse exec --help` from Muse Code 1.4.12 as captured in a public repository; review adds `--disable-write --disable-shell`; no bypass flags in either mode |
+| Real capture replay | A public `muse exec --json` echo-provider capture parsed as `completed` with its session UUID and terminal text |
+| Synthetic fixtures | Failed and cancelled terminals, missing or duplicate terminals, unrelated sessions, malformed envelopes, and approval waits are rejected or reported as blocked |
+| Dispatch | The prompt travels in a mode 0600 temporary file that is removed after success and failure; `MUSE_NO_AUTO_UPDATE=1` and `MUSE_LOGIN=0` are set |
+
+Live acceptance still needs an authenticated Muse Code install: one review read of a known fixture, one scoped work edit, one explicit session continuation, and both Grok Bot directions.
+
 ## Open acceptance
 
 1. Restore permitted Claude provider access, then exercise both Claude directions.
@@ -63,6 +76,7 @@ All four CI jobs passed on Node.js 22/24 across macOS/Linux for [implementation 
 3. Permit the specific source-host bridge command through Antigravity's native policy, then repeat its forward test.
 4. Install through each host's normal plugin/skill mechanism and test actual discovery, including the saved Grok Bot skill.
 5. Verify another clean machine and Windows before claiming those environments work.
+6. Install and authenticate Muse Code, then exercise both Muse Code directions and native skill discovery.
 
 The requested full acceptance is incomplete. This release remains an experimental alpha, with no claim of marketplace approval or independent adoption.
 

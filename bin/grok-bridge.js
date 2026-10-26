@@ -3,18 +3,18 @@ import { parseArgs } from "node:util";
 import { randomUUID } from "node:crypto";
 import { isAbsolute } from "node:path";
 import { readFile, realpath, stat } from "node:fs/promises";
-import { runLocal, localBinaries } from "../src/local.js";
+import { runLocal, localBinaries, museEnvironment } from "../src/local.js";
 import { sendGrok, readGrokThread, waitGrok } from "../src/grok.js";
 import { runProcess } from "../src/process.js";
 
-const help = `grok-bridge: one CLI for Grok Bot, Codex, Claude Code, Cursor, and Antigravity
+const help = `grok-bridge: one CLI for Grok Bot, Codex, Claude Code, Cursor, Antigravity, and Muse Code
 
-  grok-bridge run --to codex|claude|cursor|antigravity --cwd /absolute/repo --task-file task.txt
+  grok-bridge run --to codex|claude|cursor|antigravity|muse --cwd /absolute/repo --task-file task.txt
       [--mode review|work] [--session UUID] [--model MODEL] [--timeout 600]
   grok-bridge send --agent UUID --task-file task.txt [--wait] [--timeout 600]
   grok-bridge wait --agent UUID --request UUID [--timeout 600] [--poll-interval 2]
   grok-bridge thread --agent UUID
-  grok-bridge doctor [--to codex|claude|cursor|antigravity|grok]
+  grok-bridge doctor [--to codex|claude|cursor|antigravity|muse|grok]
 
 Use --task-file - to read stdin. review is the default; work explicitly allows edits.
 All commands emit JSON. send acknowledges submission; wait requires a correlated final reply.
@@ -22,8 +22,9 @@ Timeout or Ctrl-C during a Grok wait does not stop the cloud Bot. No send is ret
 Native CLI sessions retain history. The bridge stores no transcript or credentials.
 Cursor work auto-approves commands with --force inside its enabled sandbox; native deny rules apply.
 Antigravity review requests plan mode; that mode is not a hard read-only boundary.
+Muse review disables workspace writes and shell; work keeps Muse's sandbox with approvals off.
 Set GROK_BRIDGE_CODEX_BIN, GROK_BRIDGE_CLAUDE_BIN, GROK_BRIDGE_CURSOR_BIN,
-GROK_BRIDGE_ANTIGRAVITY_BIN, or GROK_BRIDGE_GBOT_BIN to an executable path.
+GROK_BRIDGE_ANTIGRAVITY_BIN, GROK_BRIDGE_MUSE_BIN, or GROK_BRIDGE_GBOT_BIN to an executable path.
 `;
 
 const definitions = {
@@ -124,7 +125,7 @@ async function doctor(to) {
   const targets = to ? [to] : [...Object.keys(localBinaries), "grok"];
   if (targets.some((p) => p !== "grok" && !Object.hasOwn(localBinaries, p)))
     throw new Error(
-      "--to must be codex, claude, cursor, antigravity, or grok.",
+      "--to must be codex, claude, cursor, antigravity, muse, or grok.",
     );
   const checks = await Promise.all(
     targets.map(async (provider) => {
@@ -136,7 +137,14 @@ async function doctor(to) {
         const output = await runProcess(
           bin,
           [provider === "grok" ? "--help" : "--version"],
-          { timeoutMs: 15000, signal: controller.signal },
+          {
+            timeoutMs: 15000,
+            signal: controller.signal,
+            env:
+              provider === "muse"
+                ? { ...process.env, ...museEnvironment }
+                : process.env,
+          },
         );
         return {
           provider,
@@ -218,7 +226,7 @@ async function main() {
   if (command === "run") {
     if (!Object.hasOwn(localBinaries, values.to))
       throw new Error(
-        "--to must be codex, claude, cursor, or antigravity for run. Use send for Grok Bot.",
+        "--to must be codex, claude, cursor, antigravity, or muse for run. Use send for Grok Bot.",
       );
     if (!values.cwd || !isAbsolute(values.cwd))
       throw new Error(

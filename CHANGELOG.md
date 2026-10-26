@@ -1,5 +1,11 @@
 # Changelog
 
+## Unreleased
+
+- Muse Code destination: `run --to muse` drives Meta's `muse exec --json` with review and work modes, explicit session continuation, and a private prompt file.
+- Muse Code host skill under `integrations/muse` and a [setup guide](docs/muse-setup.md) for both directions.
+- Ten configured directions. The Muse Code routes have offline and replayed-capture tests only; no live Muse exchange is recorded yet.
+
 ## 0.1.0-alpha.1
 
 - One shared CLI for eight configured handoff routes across Grok Bot, Codex, Claude Code, Cursor, and Antigravity.

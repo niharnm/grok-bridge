@@ -28,6 +28,7 @@ flowchart LR
   A[Claude Code plugin] --> B
   CU[Cursor plugin] --> B
   AG[Antigravity skill] --> B
+  MU[Muse Code skill] --> B
   B --> G[Community gbot client]
   G --> GB[Grok Bot]
   GB -->|Approved native local execution| R[Grok Bridge run]
@@ -35,6 +36,7 @@ flowchart LR
   R --> CC[Claude Code CLI]
   R --> CUR[Cursor Agent CLI]
   R --> AGY[Antigravity CLI]
+  R --> MUSE[Muse Code CLI]
 ```
 
 `bin/grok-bridge.js` validates user input before dispatch. It requires an explicit local directory for coding work and a UUID for Bot targeting. Task text is read from a bounded file or stdin. No command is shell-expanded by the runtime.
@@ -87,3 +89,5 @@ The alpha intentionally omits a persistent job broker, live approval forwarding,
 Cursor uses the official `agent` CLI with JSON output, an explicit workspace, and `--sandbox enabled`. Review selects Ask mode; explicit work adds the documented force flag so edits can run. The prompt is one literal argument because prompt-through-stdin was not established. Native result parsing requires its documented successful terminal object. See [Cursor parameters](https://cursor.com/docs/cli/reference/parameters), [headless mode](https://cursor.com/docs/cli/headless), and [output formats](https://cursor.com/docs/cli/reference/output-format).
 
 Antigravity uses the actual `agy` CLI with one NDJSON user message and a terminal result, under native plan or accept-edits mode. Its plan mode is not a hard read-only security boundary. Permission denials can coexist with a returned response, so the parent still verifies task acceptance. See [Antigravity headless mode](https://antigravity.google/docs/cli/headless/) and the [setup guide](antigravity-setup.md).
+
+Muse Code uses Meta's `muse exec --json` with the prompt in a private temporary file, since headless Muse reads a prompt from a file or an argument and not stdin. Approvals are off and the OS sandbox stays on. Review adds the native `--disable-write --disable-shell` flags. The parser reads the session stream ID, output deltas, and exactly one `run.terminal.*` event, ignores unknown event types, and reports a headless approval wait as blocked. Meta publishes no schema for this stream, so the parser was built from captured 1.4.x output. See [Muse Code extending and automating](https://dev.meta.ai/docs/muse-code/extending) and the [setup guide](muse-setup.md).
