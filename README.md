@@ -63,6 +63,8 @@ grok-bridge run --to antigravity --cwd /absolute/repo --mode review --task-file 
 grok-bridge run --to muse --cwd /absolute/repo --mode review --task-file task.txt
 ```
 
+The `muse` target is newer than the `v0.1.0-alpha.1` tag. To use it, install from `main` with `npm install -g github:niharnm/grok-bridge` until the next tag.
+
 `review` is the default. `work` explicitly permits edits within the task's scope. Supply `--model` only to select a particular destination model; otherwise its configured default applies. To continue a returned native session, use `--session SESSION_UUID` with the same target and repository. Nothing silently selects the most recent session.
 
 ## Install the host plugins

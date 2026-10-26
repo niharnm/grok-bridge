@@ -180,17 +180,19 @@ export async function runLocal({
   // A private temporary file keeps the task out of process listings.
   let promptDir;
   let promptFile;
-  if (to === "muse") {
-    if (typeof task !== "string" || !task.trim() || task.includes("\0"))
-      throw Object.assign(
-        new Error("Muse Code requires a nonempty text task without NUL bytes."),
-        { code: "MUSE_INVALID_INPUT" },
-      );
-    promptDir = await mkdtemp(join(tmpdir(), "grok-bridge-"));
-    promptFile = join(promptDir, "task.txt");
-    await writeFile(promptFile, input, { mode: 0o600, flag: "wx" });
-  }
   try {
+    if (to === "muse") {
+      if (typeof task !== "string" || !task.trim() || task.includes("\0"))
+        throw Object.assign(
+          new Error(
+            "Muse Code requires a nonempty text task without NUL bytes.",
+          ),
+          { code: "MUSE_INVALID_INPUT" },
+        );
+      promptDir = await mkdtemp(join(tmpdir(), "grok-bridge-"));
+      promptFile = join(promptDir, "task.txt");
+      await writeFile(promptFile, input, { mode: 0o600, flag: "wx" });
+    }
     const args = localArguments({
       to,
       cwd,

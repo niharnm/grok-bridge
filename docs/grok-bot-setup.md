@@ -60,6 +60,8 @@ grok-bridge run --to antigravity --cwd /absolute/repository --mode review --task
 grok-bridge run --to muse --cwd /absolute/repository --mode review --task-file /absolute/task.txt
 ```
 
+The `muse` target is newer than the `v0.1.0-alpha.1` tag. To use it, install from `main` with `npm install -g github:niharnm/grok-bridge` until the next tag.
+
 Check the returned result against the source before trying `--mode work` with a scoped edit. Review and work permissions differ by target: Cursor work uses force inside its enabled sandbox, Antigravity review supplies plan instructions without an enforced read-only boundary, and Muse Code runs with approvals off inside its OS sandbox. Read the target's setup guide before an edit task. Installations and logins are separate setup actions. The bridge must not alter local-execution policies or invent an approval bypass.
 
 ## Save the reverse workflow as a Bot skill
